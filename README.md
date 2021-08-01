@@ -16,7 +16,11 @@
 パン作りでコツを質問したい時
 
 ## 設計書
-
+- ワイヤーフレーム　　https://drive.google.com/file/d/1jMlZEgh1x5B3wVn9rNQtek6tR7kBOxpu/view?usp=sharing
+- UI Flows https://drive.google.com/file/d/1jn6TK-RSBsPphcNmyfCsPVDHMcfjlXIO/view?usp=sharing
+- ER図　https://drive.google.com/file/d/1Byz6D3t3Jd68ZtGFOLDX_V7D5cPje-3h/view?usp=sharing
+- テーブル定義書　　https://docs.google.com/spreadsheets/d/1PgKzJapyWMnEGJwpfBOZbevhf5rNNUZnQgsOBKUHXY8/edit?usp=sharing
+- アプリケーション詳細設計書　https://docs.google.com/spreadsheets/d/1A3E2FX1MsmR10DF-9ANiQmT7TApPmXQmdjA85immSHE/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/19Pj2KhCnjhZ6vlbviHYs_-jRWsGxBfIUb94cGCkC5ts/edit?usp=sharing
