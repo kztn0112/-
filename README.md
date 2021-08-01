@@ -1,24 +1,33 @@
-# README
+# opan
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+パン作り初心者の為の知恵袋
 
-Things you may want to cover:
+### サイトテーマ
+パン作りのコツを共有してみんなで上達しよう
 
-* Ruby version
+### テーマを選んだ理由
+パン作りで失敗をすることが多かったので、コツを質問したり共有する場が欲しいと思った為。
 
-* System dependencies
+### ターゲットユーザ
+パン作り初心者
 
-* Configuration
+### 主な利用シーン
+パン作りでコツを質問したい時
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/19Pj2KhCnjhZ6vlbviHYs_-jRWsGxBfIUb94cGCkC5ts/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
