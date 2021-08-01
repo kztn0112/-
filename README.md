@@ -13,7 +13,7 @@
 パン作り初心者
 
 ### 主な利用シーン
-パン作りでコツを質問したい時
+パン作りでコツを質問したい時。
 
 ## 設計書
 - ワイヤーフレーム　https://drive.google.com/file/d/1jMlZEgh1x5B3wVn9rNQtek6tR7kBOxpu/view?usp=sharing
