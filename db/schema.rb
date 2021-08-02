@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_02_061845) do
+ActiveRecord::Schema.define(version: 2021_08_02_074235) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "image_id"
+    t.text "title", null: false
+    t.text "content", null: false
+    t.integer "user_id"
+    t.integer "answer_id"
+    t.integer "making_genre_id"
+    t.integer "bread_genre_id"
+    t.boolean "is_resolved", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
