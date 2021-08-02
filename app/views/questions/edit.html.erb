@@ -8,6 +8,7 @@
   <%= f.text_field :content %>
   <h4>写真</h4>
    <%= attachment_image_tag @question, :image, :fill, 60, 60, fallback: "no_image.jpg"%>
+   <!--↑プロフィール用画像になってる-->
    <%= f.attachment_field :image, placeholder: "画像" %>
   <%= f.submit '保存' %>
 <% end %>
