@@ -1,0 +1,2 @@
+class BreadGenre < ApplicationRecord
+end

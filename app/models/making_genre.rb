@@ -1,0 +1,2 @@
+class MakingGenre < ApplicationRecord
+end
