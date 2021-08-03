@@ -11,4 +11,25 @@
     <%= link_to "編集", edit_question_path(@question) %>
     <%= link_to "削除", question_path(@question), method: :delete %>
   <% end %>
+
+
+
+<div class="comments">
+<p>コメント件数：<%= @question.answers.count %></p>
+<% @question.answers.each do |answer| %>
+  <p><%#= image_tag('sample-author1.jpg') %></p>
+  <%= answer.user.name %>
+  <%= answer.created_at.strftime('%Y/%m/%d') %><%= answer.content %>
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@question, @answer], local: true) do |f| %>
+  <%= f.text_area :content, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
+
+
+
+
  <%= link_to '戻る', questions_path %>

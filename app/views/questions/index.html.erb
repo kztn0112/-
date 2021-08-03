@@ -3,4 +3,5 @@
   <p>タイトル</p>
   <span><%= link_to question.title, question_path(question) %></span>
   <%= attachment_image_tag question, :image, :fill, 100, 100, format: 'jpeg' %>
+   <p><%#= link_to "#{question.answers.count} コメント" %></p>
 <% end %>

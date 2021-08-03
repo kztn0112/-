@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
   def edit
@@ -36,7 +37,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :content, :image)#, :making_genre_id, :bread_genre_id)
+    params.require(:question).permit(:title, :content, :image, :making_genre_id, :bread_genre_id)
   end
 
 end
