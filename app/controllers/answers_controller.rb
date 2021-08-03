@@ -2,10 +2,10 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new (answer_params)
-    @question = Question.find(13)
+    # @question = Question.(params[:id])
     @answer.user_id = current_user.id
-    @answer.save
-    binding.irb
+    @answer.save!
+    #binding.irb
     redirect_to question_path(@question.id)
   end
 

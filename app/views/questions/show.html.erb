@@ -3,8 +3,15 @@
 <div class="post-body">
   <p>タイトル：<%= @question.title %></p>
   <p>質問内容：<%= @question.content %></p>
+  <p>制作工程：<%= @question.making_genre.name %></p>
+  <p>パンの種類：<%= @question.bread_genre.name %></p>
   <p> <%= attachment_image_tag @question, :image, :fill, 100, 100, format: 'jpeg' %></p>
   <p>投稿日時：<%= @question.created_at.strftime('%Y/%m/%d') %></p>
+   <p>質問者：<%= link_to user_path(@question.user_id) do %>
+   <%= @question.user.name %>
+   <%= attachment_image_tag @question.user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+   <% end %>
+   </p>
 </div>
 
 <% if @question.user == current_user %>
@@ -17,7 +24,7 @@
 <div class="comments">
 <p>コメント件数：<%= @question.answers.count %></p>
 <% @question.answers.each do |answer| %>
-  <p><%#= image_tag('sample-author1.jpg') %></p>
+<%= attachment_image_tag answer.user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
   <%= answer.user.name %>
   <%= answer.created_at.strftime('%Y/%m/%d') %><%= answer.content %>
 <% end %>

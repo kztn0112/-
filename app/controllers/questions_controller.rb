@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
   def new
     @question = Question.new
+    @making_genres = MakingGenre.all
+    @bread_genres = BreadGenre.all
   end
 
   def create
@@ -37,7 +39,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :content, :image, :making_genre_id, :bread_genre_id)
+    params.require(:question).permit(:title, :content, :image, :making_genre_id, :bread_genre_id )
   end
 
 end
