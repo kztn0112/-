@@ -1,21 +1,17 @@
 class AnswersController < ApplicationController
 
   def create
-    @answer = Answer.new (answer_params)
-    # @question = Question.(params[:id])
-    @answer.user_id = current_user.id
-    @answer.save!
-    #binding.irb
-    redirect_to question_path(@question.id)
-  end
-
-  def edit
-  end
-
-  def update
+    question = Question.find(params[:question_id])
+    answer = Answer.new(answer_params)
+    answer.user_id = current_user.id
+    answer.question_id = question.id
+    answer.save
+    redirect_to question_path(question)
   end
 
   def destroy
+    Answer.find_by(id: params[:id], question_id: params[:question_id]).destroy
+    redirect_to question_path(params[:question_id])
   end
 
   private

@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find(params[:id])
+    @making_genres = MakingGenre.all
+    @bread_genres = BreadGenre.all
   end
 
   def update
