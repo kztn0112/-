@@ -1,0 +1,7 @@
+<h1>カテゴリ一覧</h1>
+
+<h2>行程カテゴリ</h2>
+<% @making_genres.each do |making_genre| %>
+<span><%= link_to making_genre.name, questions_path(making_genre: making_genre.id) , class:"link_animation", remote: true %>
+    <span class="badge badge-primary badge-pill"><%= making_genre.questions.count %></span>
+<% end %>
