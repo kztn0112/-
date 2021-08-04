@@ -22,11 +22,13 @@ class QuestionsController < ApplicationController
 
     case params[:type]
     when 'making' then
-      @questions = Question.where(making_genre_id: params[:genre].to_i)
+      @making_genre = MakingGenre.find(params[:genre])
+      @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
     when 'bread' then
-      @questions = Question.where(bread_genre_id: params[:genre].to_i)
+      @bread_genre = BreadGenre.find(params[:genre])
+      @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
     else
-      @questions = Question.all
+      @questions = Question.all.order(created_at: :DESC)
     end
   end
 

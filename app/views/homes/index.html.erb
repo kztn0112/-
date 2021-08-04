@@ -1,6 +1,6 @@
 <h1>カテゴリ一覧</h1>
 
-<h2>行程カテゴリ</h2>
+<h2>製作行程</h2>
 <% @making_genres.each do |making_genre| %>
 <span><%= link_to questions_path(genre: making_genre.id, type: 'making') do%>
     <%= making_genre.name %><%= making_genre.questions.count %></span>
