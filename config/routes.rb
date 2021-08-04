@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'searches/search'
   root to: 'homes#top'
   resources :homes, only: [:index]
 
