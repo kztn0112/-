@@ -2,7 +2,7 @@
 
 <h2>行程カテゴリ</h2>
 <% @making_genres.each do |making_genre| %>
-<span><%= link_to questions_path(making_genre: making_genre.id)  do%>
+<span><%= link_to questions_path(genre: making_genre.id, type: 'making') do%>
     <%= making_genre.name %><%= making_genre.questions.count %></span>
     <% end %>
 <% end %>
@@ -10,7 +10,7 @@
 
 <h2>パンの種類</h2>
 <% @bread_genres.each do |bread_genre| %>
-<span><%= link_to questions_path(bread_genre: bread_genre.id)  do%>
+<span><%= link_to questions_path(genre: bread_genre.id, type: 'bread') do%>
     <%= bread_genre.name %><%= bread_genre.questions.count %></span>
     <% end %>
 <% end %>

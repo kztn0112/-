@@ -13,7 +13,21 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    # @questions = Question.all
+    # if params[:type] == 'category'
+    #   @questions = Question.where(making_genre_id: params[:genre].to_i)
+    # elsif params[:type] == 'bread'
+    #   @questions = Question.where(bread_genre_id: params[:genre].to_i)
+    # end
+
+    case params[:type]
+    when 'making' then
+      @questions = Question.where(making_genre_id: params[:genre].to_i)
+    when 'bread' then
+      @questions = Question.where(bread_genre_id: params[:genre].to_i)
+    else
+      @questions = Question.all
+    end
   end
 
   def show
