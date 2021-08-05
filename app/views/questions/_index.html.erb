@@ -1,11 +1,13 @@
 
-<% case params[:type] %>
-<% when 'making' then %>
-  <p>制作工程：<%= @making_genre.name %></p>
-<% when 'bread' then %>
-  <p>パンの種類：<%= @bread_genre.name %></p>
+
+<% if params[:user_id] == nil %>
+
+<% elsif params[:type] == 'making' %>
+  <p>制作工程：<%= making_genre.name %></p>
+<% elsif params[:type] == 'bread' %>
+  <p>パンの種類：<%= bread_genre.name %></p>
 <% else %>
-  <p></p>
+  <p><%= user.name %>さんの質問履歴</p>
 <% end %>
 
 <% if questions.count == 0 %>

@@ -2,11 +2,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @questions = @user.questions.all.order(created_at: :DESC)
-    # @answers = @user.answers
-    # @answers.each do |answer|
-      # @questions2 = Question.where(answer_id: answer.id).order(created_at: :DESC)
-    # end
-    # binding.irb
   end
 
   def edit

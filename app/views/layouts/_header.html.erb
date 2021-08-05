@@ -6,6 +6,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
+          <div>ようこそ、<%= current_user.name %>さん</div>
           <li><div class="ml-5"><%= link_to ' マイページ', user_path(current_user.id),    class: "btn btn-outline-dark" %></div></li>
           <li><div class="ml-5"><%= link_to ' ログアウト',   destroy_user_session_path, method: :delete,class: "btn btn-outline-dark" %></div></li>
          <% else %>

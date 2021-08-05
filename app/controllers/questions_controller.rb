@@ -18,23 +18,30 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    # @questions = Question.all
-    # if params[:type] == 'category'
-    #   @questions = Question.where(making_genre_id: params[:genre].to_i)
-    # elsif params[:type] == 'bread'
-    #   @questions = Question.where(bread_genre_id: params[:genre].to_i)
-    # end
+     if params[:user_id] == nil
+       @questions = Question.all.order(created_at: :DESC)
+     elsif params[:type] == 'making'
+       @making_genre = MakingGenre.find(params[:genre])
+       binding.irb
+       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
+     elsif params[:type] == 'bread'
+       @bread_genre = BreadGenre.find(params[:genre])
+       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
+     else
+       @user=User.find(params[:user_id])
+       @questions=@user.questions.order(created_at: :DESC)
+     end
 
-    case params[:type]
-    when 'making' then
-      @making_genre = MakingGenre.find(params[:genre])
-      @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
-    when 'bread' then
-      @bread_genre = BreadGenre.find(params[:genre])
-      @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
-    else
-      @questions = Question.all.order(created_at: :DESC)
-    end
+    #case params[:type]
+    #when 'making' then
+      #@making_genre = MakingGenre.find(params[:genre])
+      #@questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
+    #when 'bread' then
+      #@bread_genre = BreadGenre.find(params[:genre])
+      #@questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
+    #else
+      #@questions = Question.all.order(created_at: :DESC)
+    #end
   end
 
   def show
