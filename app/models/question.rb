@@ -5,6 +5,9 @@ class Question < ApplicationRecord
   belongs_to :bread_genre
   has_many :answers, dependent: :destroy
 
+  validates :title, presence: true
+  validates :content, presence: true
+
   def self.search_for(content)
      Question.where('title LIKE ? OR content LIKE ?', '%'+content+'%' , '%'+content+'%' )
   end

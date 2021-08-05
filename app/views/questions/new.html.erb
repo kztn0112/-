@@ -1,5 +1,13 @@
 <h1>Questions#new</h1>
 
+<% if @question.errors.any? %>
+  <%= @question.errors.count %>件のエラーが発生しました
+  <% @question.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+
 <%= form_with model: @question, local:true do |f| %>
   <h4>タイトル</h4>
   <%= f.text_field :title %>

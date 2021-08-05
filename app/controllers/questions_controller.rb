@@ -6,10 +6,15 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    question.user_id = current_user.id
-    question.save
-    redirect_to questions_path
+    @question = Question.new(question_params)
+    @question.user_id = current_user.id
+    if @question.save
+      redirect_to questions_path
+    else
+      @making_genres = MakingGenre.all
+      @bread_genres = BreadGenre.all
+      render :new
+    end
   end
 
   def index
@@ -44,9 +49,14 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    question = Question.find(params[:id])
-    question.update(question_params)
-    redirect_to question_path(question.id)
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to question_path(@question.id)
+    else
+      @making_genres = MakingGenre.all
+      @bread_genres = BreadGenre.all
+      render :edit
+    end
   end
 
   def destroy
