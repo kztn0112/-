@@ -19,17 +19,17 @@ class QuestionsController < ApplicationController
 
   def index
      if params[:user_id] == nil
-       @questions = Question.all.order(created_at: :DESC)
+       @questions = Question.all.order(created_at: :DESC).page(params[:page]).reverse_order
      elsif params[:type] == 'making'
        @making_genre = MakingGenre.find(params[:genre])
        binding.irb
-       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
+       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
      elsif params[:type] == 'bread'
        @bread_genre = BreadGenre.find(params[:genre])
-       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
+       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
      else
        @user=User.find(params[:user_id])
-       @questions=@user.questions.order(created_at: :DESC)
+       @questions=@user.questions.order(created_at: :DESC).page(params[:page]).reverse_order
      end
 
     #case params[:type]
@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
   end
 
   def unsolved
-    @questions=Question.where(is_resolved: false).order(created_at: :DESC)
+    @questions=Question.where(is_resolved: false).order(created_at: :DESC).page(params[:page]).reverse_order
   end
 
   def show
