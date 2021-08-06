@@ -19,17 +19,17 @@ class QuestionsController < ApplicationController
 
   def index
      if params[:user_id] == nil
-       @questions = Question.all.order(created_at: :DESC).page(params[:page]).reverse_order
+       @questions = Question.all.page(params[:page]).reverse_order.order(created_at: :DESC)
      elsif params[:type] == 'making'
        @making_genre = MakingGenre.find(params[:genre])
        binding.irb
-       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
+       @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).reverse_order.order(created_at: :DESC)
      elsif params[:type] == 'bread'
        @bread_genre = BreadGenre.find(params[:genre])
-       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
+       @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).reverse_order.order(created_at: :DESC)
      else
        @user=User.find(params[:user_id])
-       @questions=@user.questions.order(created_at: :DESC).page(params[:page]).reverse_order
+       @questions=@user.questions.page(params[:page]).reverse_order.order(created_at: :DESC)
      end
 
     #case params[:type]
@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
   end
 
   def unsolved
-    @questions=Question.where(is_resolved: false).order(created_at: :DESC).page(params[:page]).reverse_order
+    @questions=Question.where(is_resolved: false).page(params[:page]).reverse_order.order(created_at: :DESC)
   end
 
   def show
