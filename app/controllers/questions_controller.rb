@@ -75,13 +75,13 @@ class QuestionsController < ApplicationController
   def make_resolved
     @question = Question.find(params[:id])
     @question.update(is_resolved: true)
-    redirect_to question_path(@question)
+    # redirect_to question_path(@question)
   end
 
   def destroy_resolved
     @question = Question.find(params[:id])
     @question.update(is_resolved: false)
-    redirect_to question_path(@question)
+    # redirect_to question_path(@question)
   end
 
   private

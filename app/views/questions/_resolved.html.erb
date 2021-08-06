@@ -1,12 +1,12 @@
 <% if question.is_resolved %>
     <p>
-       <%= link_to destroy_resolved_question_path(question), method: :delete, remote:true, class:"is_resolved" do %>
+       <%= link_to destroy_resolved_question_path(question), method: :delete,remote: true,class:"is_resolved" do %>
         解決済★
       <% end %>
      </p>
     <% else %>
     <p>
-       <%= link_to make_resolved_question_path(question), method: :post, remote:true, class:"is_resolved" do %>
+       <%= link_to make_resolved_question_path(question), method: :post, remote: true, class:"is_resolved" do %>
         未解決☆
       <% end %>
 
