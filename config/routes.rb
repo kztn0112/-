@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     resources :answers, only: [:create, :destroy] do
        resources :likes, only: [:create, :destroy]
     end
+
+    member do
+      post :make_resolved
+      delete :destroy_resolved
+    end
   end
 
 end

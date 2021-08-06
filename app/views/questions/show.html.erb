@@ -21,6 +21,10 @@
 
 
 
+<div>
+　<%= render "resolved", question: @question %>
+</div>
+
 <div class="comments">
 <p>コメント件数：<%= @question.answers.count %></p>
 <% @question.answers.each do |answer| %>
