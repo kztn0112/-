@@ -14,16 +14,14 @@
    </p>
 </div>
 
-<% if @question.user == current_user %>
+  <% if @question.user == current_user %>
     <%= link_to "編集", edit_question_path(@question) %>
     <%= link_to "削除", question_path(@question), method: :delete %>
   <% end %>
 
-
-
-<div class="question_<%= @question.id %>">
-　<%= render "resolved", question: @question %>
-</div>
+  <div class="question_<%= @question.id %>">
+　  <%= render "resolved", question: @question %>
+  </div>
 
 <div class="comments">
 <p>コメント件数：<%= @question.answers.count %></p>

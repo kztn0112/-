@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       @making_genres = MakingGenre.all
       @bread_genres = BreadGenre.all
@@ -74,14 +74,18 @@ class QuestionsController < ApplicationController
 
   def make_resolved
     @question = Question.find(params[:id])
+    if @question.user == current_user
     @question.update(is_resolved: true)
     # redirect_to question_path(@question)
+    end
   end
 
   def destroy_resolved
     @question = Question.find(params[:id])
-    @question.update(is_resolved: false)
+    if @question.user == current_user
+      @question.update(is_resolved: false)
     # redirect_to question_path(@question)
+     end
   end
 
   private
