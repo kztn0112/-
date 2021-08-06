@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      redirect_to questions_path
+      redirect_to question_path(@question)
     else
       @making_genres = MakingGenre.all
       @bread_genres = BreadGenre.all
@@ -19,17 +19,17 @@ class QuestionsController < ApplicationController
 
   def index
      if params[:user_id] == nil
-       @questions = Question.all.order(created_at: :DESC)
+       @questions = Question.all.order(created_at: :DESC).page(params[:page]).reverse_order
      elsif params[:type] == 'making'
        @making_genre = MakingGenre.find(params[:genre])
        binding.irb
-       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
+       @questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
      elsif params[:type] == 'bread'
        @bread_genre = BreadGenre.find(params[:genre])
-       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
+       @questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC).page(params[:page]).reverse_order
      else
        @user=User.find(params[:user_id])
-       @questions=@user.questions.order(created_at: :DESC)
+       @questions=@user.questions.order(created_at: :DESC).page(params[:page]).reverse_order
      end
 
     #case params[:type]
@@ -42,6 +42,10 @@ class QuestionsController < ApplicationController
     #else
       #@questions = Question.all.order(created_at: :DESC)
     #end
+  end
+
+  def unsolved
+    @questions=Question.where(is_resolved: false).order(created_at: :DESC).page(params[:page]).reverse_order
   end
 
   def show
@@ -74,14 +78,18 @@ class QuestionsController < ApplicationController
 
   def make_resolved
     @question = Question.find(params[:id])
+    if @question.user == current_user
     @question.update(is_resolved: true)
     # redirect_to question_path(@question)
+    end
   end
 
   def destroy_resolved
     @question = Question.find(params[:id])
-    @question.update(is_resolved: false)
+    if @question.user == current_user
+      @question.update(is_resolved: false)
     # redirect_to question_path(@question)
+    end
   end
 
   private
