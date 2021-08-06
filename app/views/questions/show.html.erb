@@ -21,6 +21,10 @@
 
 
 
+<div class="question_<%= @question.id %>">
+　<%= render "resolved", question: @question %>
+</div>
+
 <div class="comments">
 <p>コメント件数：<%= @question.answers.count %></p>
 <% @question.answers.each do |answer| %>
@@ -33,7 +37,7 @@
   </div>
   <% end %>
 
-  <div id="answer_<%= answer.id %>">
+  <div class="answer_<%= answer.id %>">
 　<%= render "likes/like", question: @question ,answer: answer, like: answer.likes.first %>
   </div>
 

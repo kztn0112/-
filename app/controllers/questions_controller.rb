@@ -72,6 +72,18 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+  def make_resolved
+    @question = Question.find(params[:id])
+    @question.update(is_resolved: true)
+    # redirect_to question_path(@question)
+  end
+
+  def destroy_resolved
+    @question = Question.find(params[:id])
+    @question.update(is_resolved: false)
+    # redirect_to question_path(@question)
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :content, :image, :making_genre_id, :bread_genre_id )
