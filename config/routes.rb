@@ -17,6 +17,10 @@ Rails.application.routes.draw do
       post :make_resolved
       delete :destroy_resolved
     end
+
+    collection do
+      get :unsolved
+    end
   end
 
 end

@@ -44,6 +44,10 @@ class QuestionsController < ApplicationController
     #end
   end
 
+  def unsolved
+    @questions=Question.where(is_resolved: false).order(created_at: :DESC)
+  end
+
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new
@@ -85,7 +89,7 @@ class QuestionsController < ApplicationController
     if @question.user == current_user
       @question.update(is_resolved: false)
     # redirect_to question_path(@question)
-     end
+    end
   end
 
   private
