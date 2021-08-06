@@ -1,1 +1,1 @@
-$("#answer_<%= @answer.id %>").html("<%= j(render 'likes/like', question: @question,answer: @answer, like: @like) %>");
+$(".answer_<%= @answer.id %>").html("<%= j(render 'likes/like', question: @question,answer: @answer, like: @like) %>");
