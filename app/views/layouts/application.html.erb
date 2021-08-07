@@ -6,24 +6,20 @@
     <title>おパン</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
-　<%= render 'layouts/navi' %>
+    <%= render 'layouts/header' %>
+　  <%= render 'layouts/navi' %>
     <%= yield %>
-
-
-　<div class="container">
+    <div class="container">
       <div class="row">
         <div class="mx-auto">
           <footer class="foot">CopyRight ○○.inc</footer>
         </div>
       </div>
     </div>
-
   </body>
 </html>
