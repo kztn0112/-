@@ -12,7 +12,7 @@
           <li><div class="ml-5"><%= link_to ' マイページ', user_path(current_user.id),    class: "btn btn-outline-dark" %></div></li>
           <li><div class="ml-5"><%= link_to ' ログアウト',   destroy_user_session_path, method: :delete,class: "btn btn-outline-dark" %></div></li>
          <% else %>
-          <li><div class="ml-5"><%= link_to ' top', root_path,                     class: "btn btn-outline-dark" %></div></li>
+          <li><div class="ml-5"><%= link_to ' top', root_path,class: "btn btn-outline-dark" %></div></li>
           <li><div class="ml-5"><%= link_to ' 新規登録', new_user_registration_path, class: "btn btn-outline-dark" %></div></li>
           <li><div class="ml-5"><%= link_to ' ログイン', new_user_session_path ,     class: "btn btn-outline-dark" %></div></li>
         <% end %>
