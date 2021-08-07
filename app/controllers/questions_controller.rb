@@ -17,20 +17,26 @@ class QuestionsController < ApplicationController
     end
   end
 
+  # user_idが存在する
+  # user_idが存在しない
+   # typeがmaking
+   # typeがbread
+
   def index
-     if params[:user_id] == nil
-       @questions = Question.all.page(params[:page]).reverse_order.order(created_at: :DESC)
-     elsif params[:type] == 'making'
+     if params[:user_id].present?
+       @user=User.find(params[:user_id])
+       @questions=@user.questions.page(params[:page]).order(created_at: :DESC)
+     elsif  params[:type] == 'making'
        @making_genre = MakingGenre.find(params[:genre])
-       binding.irb
-       @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).reverse_order.order(created_at: :DESC)
+       @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
      elsif params[:type] == 'bread'
        @bread_genre = BreadGenre.find(params[:genre])
-       @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).reverse_order.order(created_at: :DESC)
+       @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
      else
-       @user=User.find(params[:user_id])
-       @questions=@user.questions.page(params[:page]).reverse_order.order(created_at: :DESC)
+       @questions = Question.all.page(params[:page]).order(created_at: :DESC)
      end
+
+
 
     #case params[:type]
     #when 'making' then

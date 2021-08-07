@@ -1,12 +1,11 @@
-<% if params[:user_id] == nil %>
-
-
+<% if params[:user_id].present? %>
+<p><%= user.name %>さんの質問履歴</p>
 <% elsif params[:type] == 'making' %>
   <p>制作工程：<%= making_genre.name %></p>
 <% elsif params[:type] == 'bread' %>
   <p>パンの種類：<%= bread_genre.name %></p>
 <% else %>
-  <p><%= user.name %>さんの質問履歴</p>
+
 <% end %>
 
 <% if questions.count == 0 %>
@@ -19,7 +18,7 @@
   <%= attachment_image_tag question.user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
    <div><%= "#{question.answers.count} コメント" %></div>
    <div class="question_<%= question.id %>">
-　  <%= render "resolved", question: question %>
+　  <%= render "questions/resolved", question: question %>
   </div>
 
 <% end %>
