@@ -5,11 +5,11 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     @answer.question_id = @question.id
-    if @answer.save
-      redirect_to question_path(@question)
-    else
-      render 'questions/show'
-    end
+     if @answer.save
+       redirect_to question_path(@question)
+     else
+       render 'questions/show'
+     end
   end
 
   def destroy
