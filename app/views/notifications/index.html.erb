@@ -1,0 +1,7 @@
+<h1>通知一覧</h1>
+<!--自分の投稿に対するいいね、コメントは通知に表示しない-->
+<% if @notifications.present? %>
+<%= render "notifications/notification",notifications: @notifications %>
+<% else %>
+  <p>通知はありません</p>
+<% end %>
