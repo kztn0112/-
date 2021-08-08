@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
     @answer.question_id = @question.id
      if @answer.save
        redirect_to question_path(@question)
+       @question.create_notification_answer!(current_user, @answer.id)
      else
        render 'questions/show'
      end
