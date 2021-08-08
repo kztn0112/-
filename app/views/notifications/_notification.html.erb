@@ -1,4 +1,7 @@
-コメントがありました<%#= current_user.name %>
 
 
-
+<% notifications.each do |notification| %>
+  <span><%= link_to notification.visitor.name, user_path(notification.visitor_id)  %>さんから</span>
+  <%= link_to notification.question.title, question_path(notification.question_id)  %>の質問へ
+  コメントがありました。
+<% end %>
