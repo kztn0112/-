@@ -1,4 +1,4 @@
-<h2>プロフィール編集</h2>
+<div class="container"><h2>プロフィール編集</h2>
 <%= render "layouts/error", object: @user %>
 
 
@@ -11,3 +11,4 @@
   <label for="inputImage">ProfileImage</label>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>  <%= f.submit "変更を保存" %>
 <% end %>
+</div>

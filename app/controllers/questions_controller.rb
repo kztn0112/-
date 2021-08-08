@@ -17,11 +17,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # user_idが存在する
-  # user_idが存在しない
-   # typeがmaking
-   # typeがbread
-
   def index
      if params[:user_id].present?
        @user=User.find(params[:user_id])
@@ -35,19 +30,6 @@ class QuestionsController < ApplicationController
      else
        @questions = Question.all.page(params[:page]).order(created_at: :DESC)
      end
-
-
-
-    #case params[:type]
-    #when 'making' then
-      #@making_genre = MakingGenre.find(params[:genre])
-      #@questions = Question.where(making_genre_id: params[:genre]).order(created_at: :DESC)
-    #when 'bread' then
-      #@bread_genre = BreadGenre.find(params[:genre])
-      #@questions = Question.where(bread_genre_id: params[:genre]).order(created_at: :DESC)
-    #else
-      #@questions = Question.all.order(created_at: :DESC)
-    #end
   end
 
   def unsolved

@@ -1,7 +1,7 @@
-　<% unless params[:user_id].present? or params[:type].present?  %>
+<div class="container">
+  <% unless params[:user_id].present? or params[:type].present?  %>
 　<h1>質問一覧</h1>
 <%= link_to '回答受付中', unsolved_questions_path %><br>
 <% end %>
   <%= render 'questions/index', questions: @questions ,making_genre: @making_genre,bread_genre: @bread_genre ,user: @user %>
-
-
+</div>
