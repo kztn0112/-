@@ -12,14 +12,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-　  <%= render 'layouts/navi' %>
+     <% if user_signed_in? %>
+    <%= render 'layouts/search' %>
+     <% end %>
     <%= yield %>
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto">
-          <footer class="foot">CopyRight ○○.inc</footer>
-        </div>
-      </div>
-    </div>
+    <footer class="footer text-center bg-light p-5">CopyRight ○○.inc</footer>
+
   </body>
 </html>

@@ -1,10 +1,5 @@
-<h2>プロフィール編集</h2>
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>件のエラーが発生しました
-  <% @user.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+<div class="container"><h2>プロフィール編集</h2>
+<%= render "layouts/error", object: @user %>
 
 
 <%= form_with model:@user, local:true do |f| %>
@@ -16,3 +11,4 @@
   <label for="inputImage">ProfileImage</label>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>  <%= f.submit "変更を保存" %>
 <% end %>
+</div>
