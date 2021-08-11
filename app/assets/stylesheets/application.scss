@@ -28,9 +28,16 @@
   box-sizing: border-box;
   }
 
- .headernavbar{
+ .navbar{
   background-color:#ffa50070;
  }
+
+ .notification-circle {
+  position: absolute;
+  padding-left: 30%;
+  padding-top: 0;
+  color: #efa04c;
+}
 
  .footer{
   background-color:#ffa50070;
