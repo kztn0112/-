@@ -8,7 +8,7 @@
   <% else %>
     <h1 class="text-center">質問一覧</h1>
   　<div class="text-right mr-5">
-    <%= link_to '回答受付中', unsolved_questions_path %><br>
+    <%= link_to '回答受付中の質問はこちら', unsolved_questions_path %><br>
     </div>
   <% end %>
   <%= render 'questions/index', questions: @questions ,making_genre: @making_genre,bread_genre: @bread_genre ,user: @user %>
