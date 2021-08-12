@@ -18,15 +18,23 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
- /*body {*/
-  /*background-image: image-url("hoge.jpg");*/
-/*}*/
-
  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
+ }
+
+
+ a {
+  color: #000000;
+  text-decoration: none;
+ }
+
+ a:hover {
+  color: #000000;
+  text-decoration: none;
+ }
+
 
  .navbar{
   background-color:#ffa50070;
@@ -37,7 +45,7 @@
   padding-left: 30%;
   padding-top: 0;
   color: #efa04c;
-}
+ }
 
  .footer{
   background-color:#ffa50070;
