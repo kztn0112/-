@@ -21,10 +21,13 @@
  * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   color:#542D24;
+  box-sizing: border-box;
  }
 
+.content{
+ min-height: 55vh;
+}
 
  a {
   color: #542D24;
