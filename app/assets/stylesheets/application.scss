@@ -22,20 +22,27 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color:#542D24;
  }
 
+
  a {
-  color: #000000;
+  color: #542D24;
   text-decoration: none;
  }
 
  a:hover {
-  color: #000000;
-  text-decoration: none;
+  color: #542D24;
  }
 
  .navbar{
   background-color:#ffa50070;
+ }
+
+ .profile_image{
+  width:  60px;
+  height: 60px;
+  border-radius: 50%;
  }
 
  .notification-circle {

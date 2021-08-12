@@ -12,7 +12,7 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <div>ようこそ、<%= current_user.name %>さん
-          <%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg' %>
+          <%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "header_profile_image" %>
           </div>
           <li><div class="ml-5"><%= link_to ' マイページ', user_path(current_user.id),    class: "btn btn-light btn-outline-dark" %></div></li>
           <li><div class="ml-5"><%= link_to ' 通知', notifications_path,class: "btn btn-light btn-outline-dark" %></div></li>

@@ -5,7 +5,7 @@
 <div class="row">
 <% questions.each do |question| %>
 <div class="col-4">
-  <div class="card m-5" style="width: 18rem;">
+  <div class="card m-5 shadow-lg" style="width: 18rem;">
     <div class="card-img-top">
     <%=link_to question_path(question) do %>
     <%= attachment_image_tag question, :image,:fill, 286, 200, format: 'jpeg',fallback: "no_image.jpg" %>
@@ -19,12 +19,7 @@
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><%= "#{question.answers.count} コメント" %></li>
-
-    <li class="list-group-item">
-      <div class="question_<%= question.id %>">
-　  <%= render "questions/resolved", question: question %>
-  </div>
-  </li>
+    <li class="list-group-item question_<%= question.id %>"><%= render "questions/resolved", question: question %></li>
   </ul>
   <div class="card-body">
     <span class="making_genre"><%= question.making_genre.name %></span>

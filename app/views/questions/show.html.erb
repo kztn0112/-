@@ -1,7 +1,5 @@
 <div class="container">
-  <h1>Questions#show</h1>
 
-<div class="post-body">
   <p>タイトル：<%= @question.title %></p>
   <p>質問内容：<%= @question.content %></p>
   <p>制作工程：<%= @question.making_genre.name %></p>
@@ -13,7 +11,7 @@
    <%= attachment_image_tag @question.user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
    <% end %>
    </p>
-</div>
+
 
   <% if @question.user == current_user %>
     <%= link_to "編集", edit_question_path(@question) %>
@@ -53,5 +51,6 @@
 <% end %>
 </div>
 
+</div>
 </div>
 
