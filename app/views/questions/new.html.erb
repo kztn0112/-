@@ -1,28 +1,37 @@
 <div class="container">
-<div class="d-flex justify-content-center">
-<div>
-<h1 class="my-3">質問する</h1>
+  <div class="col-6 offset-3">
+    <h1 class="text-center mb-5">質問する</h1>
 
-<%= render "layouts/error", object: @question %>
+    <%= render "layouts/error", object: @question %>
 
-<%= form_with model: @question, local:true do |f| %>
-  <h4 class="my-3">タイトル</h4>
-  <%= f.text_field :title %>
-  <h4 class="my-3">本文</h4>
-  <%= f.text_area :content %>
-  <h4 class="my-3">製作行程</h4>
-  <div class="radio-inline">
-    <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
+    <%= form_with model: @question, local:true do |f| %>
+      <div class="m-3">
+        <h4 class="my-3">タイトル</h4>
+          <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">本文</h4>
+          <%= f.text_area :content, class: "form-control" %>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">製作行程</h4>
+        <div class="radio-inline">
+          <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
+        </div>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">パンの種類</h4>
+        <div class="radio-inline">
+          <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
+        </div>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">画像</h4>
+          <%= f.attachment_field :image %>
+      </div>
+      <div class="mt-5 pb-5 text-center">
+         <%= f.submit '投稿' %>
+      </div>
+    <% end %>
   </div>
-<h4 class="my-3">パンの種類</h4>
-  <div class="radio-inline">
-    <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
-  </div>
-  <h4 class="my-3">画像</h4>
-  <%= f.attachment_field :image %>
-  <h4 class="my-3"></h4>
-  <%= f.submit '投稿' %>
-<% end %>
-</div>
-</div>
 </div>
