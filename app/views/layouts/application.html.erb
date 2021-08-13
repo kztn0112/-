@@ -12,10 +12,10 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <div class="content">
     <% if user_signed_in? %>
       <%= render 'layouts/search' %>
     <% end %>
-    <div class="content">
     <%= yield %>
     </div>
     <footer class="footer text-center p-5">CopyRight ○○.inc</footer>

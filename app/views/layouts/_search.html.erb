@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="search-form text-center m-5">
+  <div class="search-form text-center p-5">
   <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
     <%= f.text_field :content ,:size=>"80" %>
     <%= f.submit '検索' %>

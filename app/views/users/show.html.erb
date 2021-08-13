@@ -1,33 +1,31 @@
 <div class="container">
-  <h3 class="m-4">マイページ</h3>
-  <div class="myinformation ">
-
-    <table class="table table-bordered my-3">
+  <h3 class="text-center m-4">マイページ</h3>
+  <div class="information  col-7 offset-3">
+    <div class="m-3">
+     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg",class: "profile-image" %>
+    </div>
+    <table class="table">
       <thead>
         <tr>
-          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg",class: "profile-image" %>
+          <td>氏名</td>
+          <td><%= @user.name %></td>
         </tr>
         <tr>
-          <th>氏名</th>
-          <th><%= @user.name %></th>
-        </tr>
-        <tr>
-          <th>自己紹介</th>
-          <th><%= @user.introduction %></th>
+          <td>自己紹介</td>
+          <td><%= @user.introduction %></td>
         </tr>
       </thead>
     </table>
+
      <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+    <p class="text-right"><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
   <% end %>
-  </div>
 
-
-
-<%= form_with url:questions_path,method: :get,required: true , local: true  do |f| %>
+  <%= form_with url:questions_path,method: :get,required: true , local: true  do |f| %>
   <%= hidden_field_tag :user_id  , @user.id %>
-  <%= f.submit "質問履歴を見る",:class=>"button btn-sm"%>
+  <%= f.submit "質問履歴を見る",:class=>"button btn-sm col-2.5 offset-10"%>
  <% end %>
 
-
+  </div>
 </div>
+

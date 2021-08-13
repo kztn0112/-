@@ -23,11 +23,13 @@
   padding: 0;
   color:#542D24;
   box-sizing: border-box;
+  font-family: HiraMaruProN-W4,Hiragino Kaku Gothic Pro,"メイリオ";
  }
 
 .content{
- min-height: 50vh;
-}
+ min-height: 65vh;
+ background-color: #FFF6D9;
+ }
 
  a {
   color: #542D24;
@@ -58,5 +60,3 @@
  .footer{
   background-color:#ffa50070;
  }
-
-
