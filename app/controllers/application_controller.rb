@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
     questions_path
   end
 
+  add_flash_types :success, :info, :warning, :danger
+
   protected
 
   def configure_permitted_parameters
