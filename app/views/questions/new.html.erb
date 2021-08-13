@@ -1,32 +1,32 @@
 <div class="container">
   <div class="col-6 offset-3">
-    <h1 class="text-center mb-5">質問する</h1>
+    <h3 class="text-center">質問する</h3>
 
     <%= render "layouts/error", object: @question %>
 
     <%= form_with model: @question, local:true do |f| %>
       <div class="m-3">
-        <h4 class="my-3">タイトル</h4>
+        <h5 class="my-3">タイトル</h5>
           <%= f.text_field :title, class: "form-control" %>
       </div>
       <div class="m-3">
-        <h4 class="my-3">本文</h4>
+        <h5 class="my-3">本文</h5>
           <%= f.text_area :content, class: "form-control" %>
       </div>
       <div class="m-3">
-        <h4 class="my-3">製作行程</h4>
+        <h5 class="my-3">製作行程</h5>
         <div class="radio-inline">
           <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
         </div>
       </div>
       <div class="m-3">
-        <h4 class="my-3">パンの種類</h4>
+        <h5 class="my-3">パンの種類</h5>
         <div class="radio-inline">
           <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
         </div>
       </div>
       <div class="m-3">
-        <h4 class="my-3">画像</h4>
+        <h5 class="my-3">画像</h5>
           <%= f.attachment_field :image %>
       </div>
       <div class="mt-5 pb-5 text-center">
