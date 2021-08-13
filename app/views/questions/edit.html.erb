@@ -1,22 +1,40 @@
-<h1>質問編集画面</h1>
+<div class="container">
+  <div class="col-6 offset-3">
+    <h1 class="text-center mb-5">編集画面</h1>
 
-<%= render "layouts/error", object: @question %>
+    <%= render "layouts/error", object: @question %>
 
+    <%= form_with model: @question, local:true do |f| %>
+      <div class="m-3">
+        <h4 class="my-3">タイトル</h4>
+          <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">本文</h4>
+          <%= f.text_area :content, class: "form-control" %>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">製作行程</h4>
+        <div class="radio-inline">
+          <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
+        </div>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">パンの種類</h4>
+        <div class="radio-inline">
+          <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
+        </div>
+      </div>
+      <div class="m-3">
+        <h4 class="my-3">画像</h4>
+          <%= attachment_image_tag @question, :image, :fill, 60, 60, fallback: "no_image.jpg"%>
+          <%= f.attachment_field :image, placeholder: "画像" %>
+      </div>
+      <div class="mt-5 text-center">
+         <%= f.submit '保存する' %>
+      </div>
+   　 <% end %>
 
-<%= form_with model:@question, local: true do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>質問内容</h4>
-  <%= f.text_field :content %>
-  <h4>制作工程</h4>
-   <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
-   <h4>パンの種類</h4>
-   <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
-  <h4>写真</h4>
-   <%= attachment_image_tag @question, :image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  </div>
+</div>
 
-   <%= f.attachment_field :image, placeholder: "画像" %>
-  <%= f.submit '保存' %>
-<% end %>
-
-<%= link_to '戻る', question_path(@question) %>
