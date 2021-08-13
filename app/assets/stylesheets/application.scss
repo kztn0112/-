@@ -18,27 +18,45 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
- /*body {*/
-  /*background-image: image-url("hoge.jpg");*/
-/*}*/
-
  * {
   margin: 0;
   padding: 0;
+  color:#542D24;
   box-sizing: border-box;
-  }
+ }
+
+.content{
+ min-height: 50vh;
+}
+
+ a {
+  color: #542D24;
+  text-decoration: none;
+ }
+
+ a:hover {
+  color: #542D24;
+ }
 
  .navbar{
   background-color:#ffa50070;
  }
 
+ .header-profile-image{
+  width:  60px;
+  height: 60px;
+  border-radius: 50%;
+ }
+
  .notification-circle {
   position: absolute;
-  padding-left: 30%;
+  padding-left: 34%;
   padding-top: 0;
   color: #efa04c;
-}
+ }
 
  .footer{
   background-color:#ffa50070;
  }
+
+

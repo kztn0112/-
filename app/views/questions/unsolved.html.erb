@@ -1,5 +1,7 @@
  <div class="container">
-  <h1>回答受付中</h1>
-  <%= link_to '質問一覧', questions_path %><br>
+  <h1 class="text-center">回答受付中</h1>
+  <div class="text-right mr-5">
+  <%= link_to '質問一覧はこちらへ', questions_path %><br>
+ </div>
  <%= render 'index', questions: @questions %>
  </div>

@@ -1,7 +1,20 @@
 <div class="container">
-  <% unless params[:user_id].present? or params[:type].present?  %>
-　<h1>質問一覧</h1>
-<%= link_to '回答受付中', unsolved_questions_path %><br>
-<% end %>
+  <% if params[:user_id].present? %>
+    <h1 class="text-center"><%= @user.name %>さんの質問履歴</h1>
+  <% elsif params[:type] == 'making' %>
+     <h1 class="text-center">制作工程：<%= @making_genre.name %></h1>
+  <% elsif params[:type] == 'bread' %>
+    <h1 class="text-center">パンの種類：<%= @bread_genre.name %></h1>
+  <% else %>
+    <h1 class="text-center">質問一覧</h1>
+    <div class="text-right mr-5">
+    <%= link_to '回答受付中の質問はこちら', unsolved_questions_path %>
+    </div>
+  <% end %>
+  <div class="social">
+    <%= link_to new_question_path do %>
+      <i class="fas fa-plus-circle fa-2x"></i>
+    <% end %>
+  </div>
   <%= render 'questions/index', questions: @questions ,making_genre: @making_genre,bread_genre: @bread_genre ,user: @user %>
 </div>
