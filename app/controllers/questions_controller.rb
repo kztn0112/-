@@ -33,7 +33,7 @@ class QuestionsController < ApplicationController
   end
 
   def unsolved
-    @questions=Question.where(is_resolved: false).page(params[:page]).reverse_order.order(created_at: :DESC)
+    @questions=Question.where(is_resolved: false).page(params[:page]).per(6).order(created_at: :DESC)
   end
 
   def show

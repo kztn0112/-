@@ -1,5 +1,7 @@
-<div class="container text-center my-5">
-  <h1 class="my-3">質問する</h1>
+<div class="container">
+<div class="d-flex justify-content-center">
+<div>
+<h1 class="my-3">質問する</h1>
 
 <%= render "layouts/error", object: @question %>
 
@@ -12,12 +14,15 @@
   <div class="radio-inline">
     <%= f.collection_radio_buttons :making_genre_id, @making_genres, :id, :name %>
   </div>
-  <h4 class="my-3">パンの種類</h4>
+<h4 class="my-3">パンの種類</h4>
   <div class="radio-inline">
     <%= f.collection_radio_buttons :bread_genre_id, @bread_genres, :id, :name %>
   </div>
   <h4 class="my-3">画像</h4>
   <%= f.attachment_field :image %>
+  <h4 class="my-3"></h4>
   <%= f.submit '投稿' %>
 <% end %>
+</div>
+</div>
 </div>

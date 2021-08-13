@@ -11,5 +11,10 @@
     <%= link_to '回答受付中の質問はこちら', unsolved_questions_path %>
     </div>
   <% end %>
+  <div class="social">
+    <%= link_to new_question_path do %>
+      <i class="fas fa-plus-circle fa-2x"></i>
+    <% end %>
+  </div>
   <%= render 'questions/index', questions: @questions ,making_genre: @making_genre,bread_genre: @bread_genre ,user: @user %>
 </div>
