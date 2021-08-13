@@ -18,7 +18,7 @@
     <% end %>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= "#{question.answers.count} コメント" %></li>
+    <li class="list-group-item"><%= "#{question.answers.count} 件の回答" %></li>
     <li class="list-group-item question_<%= question.id %>"><%= render "questions/resolved", question: question %></li>
   </ul>
   <div class="card-body">

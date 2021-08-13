@@ -1,7 +1,26 @@
-<h1>通知一覧</h1>
-<!--自分の投稿に対するいいね、コメントは通知に表示しない-->
-<% if @notifications.present? %>
-<%= render "notifications/notification",notifications: @notifications %>
-<% else %>
-  <p>通知はありません</p>
-<% end %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div>
+      <h1 class="text-center">通知一覧</h1>
+        <% if @notifications.present? %>
+          <% @notifications.each do |notification| %>
+            <div class="card w-120 m-5">
+              <div class="card-body">
+                <div class="card-text">
+                  <%= link_to user_path(notification.visitor_id) do %>
+                          <%= attachment_image_tag notification.visitor, :profile_image, :fill, 60, 60, format: 'jpeg',class: "rounded-circle" %>
+                          <p><%= notification.visitor.name %>
+                  <% end %>
+                  さんから</p>
+                  <%= link_to notification.question.title, question_path(notification.question_id)  %>の質問へ回答がありました。
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <h5 class="text-center my-5">通知はありません。</h5>
+        <% end %>
+    </div>
+  </div>
+</div>
+
