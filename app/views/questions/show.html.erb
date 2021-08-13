@@ -47,10 +47,6 @@
   <% end %>
   </div>
 </div>
-
-<%= render "layouts/error", object: @answer %>
-
-
 <div class="new-answer d-flex justify-content-center">
   <div>
     <%= form_with(model:[@question, @answer], local: true) do |f| %>
