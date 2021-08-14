@@ -20,22 +20,22 @@ class QuestionsController < ApplicationController
   end
 
   def index
-     if params[:user_id].present?
-       @user=User.find(params[:user_id])
-       @questions=@user.questions.page(params[:page]).per(6).order(created_at: :DESC)
-     elsif  params[:type] == 'making'
-       @making_genre = MakingGenre.find(params[:genre])
-       @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
-     elsif params[:type] == 'bread'
-       @bread_genre = BreadGenre.find(params[:genre])
-       @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
-     else
-       @questions = Question.all.page(params[:page]).per(6).order(created_at: :DESC)
-     end
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+      @questions = @user.questions.page(params[:page]).per(6).order(created_at: :DESC)
+    elsif  params[:type] == 'making'
+      @making_genre = MakingGenre.find(params[:genre])
+      @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
+    elsif params[:type] == 'bread'
+      @bread_genre = BreadGenre.find(params[:genre])
+      @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
+    else
+      @questions = Question.all.page(params[:page]).per(6).order(created_at: :DESC)
+    end
   end
 
   def unsolved
-    @questions=Question.where(is_resolved: false).page(params[:page]).per(6).order(created_at: :DESC)
+    @questions = Question.where(is_resolved: false).page(params[:page]).per(6).order(created_at: :DESC)
   end
 
   def show
@@ -72,8 +72,7 @@ class QuestionsController < ApplicationController
   def make_resolved
     @question = Question.find(params[:id])
     if @question.user == current_user
-    @question.update(is_resolved: true)
-    # redirect_to question_path(@question)
+      @question.update(is_resolved: true)
     end
   end
 
@@ -81,7 +80,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.user == current_user
       @question.update(is_resolved: false)
-    # redirect_to question_path(@question)
     end
   end
 
@@ -89,5 +87,4 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:title, :content, :image, :making_genre_id, :bread_genre_id )
   end
-
 end

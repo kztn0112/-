@@ -22,18 +22,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: HiraMaruProN-W4,Hiragino Kaku Gothic Pro,"メイリオ";
+  font-family: HiraMaruProN-W4, Hiragino Kaku Gothic Pro, "メイリオ";
  }
 
- body{
+ body {
   color: #542D24;
  }
 
- .content{
+ .content {
   min-height: 65vh;
   background-color: #FFF6D9;
-  position: relative;
-  }
+ }
 
  a {
   color: #542D24;
@@ -44,11 +43,11 @@
   color: #542D24;
  }
 
- .navbar{
-  background-color:#ffa50070;
+ .navbar {
+  background-color: #ffc107;
  }
 
- .header-profile-image{
+ .header-profile-image {
   width:  60px;
   height: 60px;
   border-radius: 50%;
@@ -56,11 +55,11 @@
 
  .notification-circle {
   position: absolute;
-  padding-left: 34%;
+  padding-left: 36%;
   padding-top: 0;
-  color: #efa04c;
+  color: #87cefa;
  }
 
- .footer{
-  background-color:#ffa50070;
+ .footer {
+  background-color: #ffc107;
  }
