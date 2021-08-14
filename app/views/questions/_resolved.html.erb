@@ -1,17 +1,15 @@
 <% if current_user == question.user %>
-    <% if question.is_resolved %>
-      <%= link_to destroy_resolved_question_path(question), method: :delete,remote: true,class:"is_resolved" do %>
-        <i class="fas fa-flag"></i>解決済
-        <% end %>
-      <% else %>
-      <%= link_to make_resolved_question_path(question), method: :post, remote: true, class:"is_resolved" do %>
-         <i class="far fa-flag"></i>未解決
-         <% end %>
+  <% if question.is_resolved %>
+    <%= link_to destroy_resolved_question_path(question), method: :delete,remote: true,class: "is_resolved" do %>
+      <i class="fas fa-flag"></i>解決済
     <% end %>
   <% else %>
-      <% if question.is_resolved %>
-        <i class="fas fa-flag"></i>解決済
-        <% else %>
-        <i class="far fa-flag"></i>未解決
-      <% end %>
+    <%= link_to create_resolved_question_path(question), method: :post, remote: true, class: "is_resolved" do %>
+      <i class="far fa-flag"></i>未解決
+    <% end %>
+  <% end %>
+<% elsif question.is_resolved %>
+  <i class="fas fa-flag"></i>解決済
+<% else %>
+  <i class="far fa-flag"></i>未解決
 <% end %>

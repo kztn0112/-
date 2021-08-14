@@ -1,5 +1,6 @@
 <div class="container">
   <div class="col-6 offset-3">
+
     <h3 class="text-center mb-4">プロフィール編集</h3>
     <%= form_with model: @user, local:true do |f| %>
       <div class="m-3">
@@ -16,9 +17,9 @@
           <%= f.attachment_field :profile_image, placeholder: "画像" %>
       </div>
       <div class="mt-5 text-center">
-         <%= f.submit '保存する' %>
+        <%= f.submit '保存する' %>
       </div>
-   　 <% end %>
+    <% end %>
 
   </div>
 </div>
