@@ -16,19 +16,42 @@
               ようこそ、<%= current_user.name %>さん
               <%= attachment_image_tag current_user, :profile_image, :fill, 50, 50, format: 'jpeg',class: "header-profile-image" %>
             </div>
-            <li><div class="ml-5"><%= link_to ' マイページ', user_path(current_user.id),    class: "btn btn-light btn-outline-dark" %></div></li>
+            <li><div class="ml-5"><%= link_to user_path(current_user.id), class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-user"></i>マイページ
+              <% end %>
+            </div></li>
             <% if unchecked_notifications.any? %>
               <i class="fa fa-circle notification-circle"></i>
             <% end %>
-            <li><div class="ml-5"><%= link_to ' 通知', notifications_path,class: "btn btn-light btn-outline-dark" %></div></li>
-            <li><div class="ml-5"><%= link_to ' カテゴリ', homes_path, class: "btn btn-light btn-outline-dark" %></div></li>
-            <li><div class="ml-5"><%= link_to ' 質問一覧', questions_path, class: "btn btn-light btn-outline-dark" %></div></li>
-            <!--<li><div class="ml-5"><%#= link_to ' 質問新規投稿', new_question_path, class: "btn btn-light btn-outline-dark" %></div></li>-->
-            <li><div class="ml-5"><%= link_to ' ログアウト',   destroy_user_session_path, method: :delete,class: "btn btn-light btn-outline-dark" %></div></li>
+            <li><div class="ml-5"><%= link_to notifications_path,class: "btn btn-light btn-outline-dark"  do %>
+              <i class="far fa-bell"></i>通知
+              <% end %>
+            </div></li>
+            <li><div class="ml-5"><%= link_to homes_path, class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-search"></i>ジャンル検索
+              <% end %>
+            </div></li>
+            <li><div class="ml-5"><%= link_to questions_path, class: "btn btn-light btn-outline-dark" do %>
+              <i class="fab fa-quora"></i>質問一覧
+               <% end %>
+            </div></li>
+            <li><div class="ml-5"><%= link_to destroy_user_session_path, method: :delete,class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-sign-out-alt"></i>ログアウト
+              <% end %>
+            </div></li>
           <% else %>
-            <li><div class="ml-5"><%= link_to ' top', root_path,class: "btn btn-light btn-outline-dark" %></div></li>
-            <li><div class="ml-5"><%= link_to ' 新規登録', new_user_registration_path, class: "btn btn-light btn-outline-dark" %></div></li>
-            <li><div class="ml-5"><%= link_to ' ログイン', new_user_session_path ,class: "btn btn-light btn-outline-dark" %></div></li>
+            <li><div class="ml-5"><%= link_to root_path,class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-home"></i>トップ
+              <% end %>
+            </div></li>
+            <li><div class="ml-5"><%= link_to new_user_registration_path, class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-check-circle"></i>新規登録
+              <% end %>
+              </div></li>
+            <li><div class="ml-5"><%= link_to new_user_session_path ,class: "btn btn-light btn-outline-dark" do %>
+              <i class="fas fa-sign-in-alt"></i>ログイン
+              <% end %>
+            </div></li>
           <% end %>
         </ul>
       </div>
