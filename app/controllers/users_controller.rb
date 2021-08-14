@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
     @questions = @user.questions.all.order(created_at: :DESC)
@@ -21,9 +20,7 @@ class UsersController < ApplicationController
   end
 
   private
-
   def user_params
     params.require(:user).permit(:name,:introduction, :profile_image)
   end
-
 end

@@ -10,7 +10,7 @@ class Question < ApplicationRecord
   validates :content, presence: true
 
   def self.search_for(content)
-     Question.where('title LIKE ? OR content LIKE ?', '%'+content+'%' , '%'+content+'%' )
+    Question.where('title LIKE ? OR content LIKE ?', '%' + content + '%' , '%' + content + '%' )
   end
 
   def create_notification_answer!(current_user, answer_id)
@@ -39,4 +39,3 @@ class Question < ApplicationRecord
   end
 
 end
-
