@@ -1,26 +1,66 @@
 <div class="container">
 
-  <div class="card mx-auto" style="width: 40rem;">
-    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card question mx-auto" style="width: 45rem;">
     <div class="card-body">
+      <div class="card-item">
+        <span>
+          <%= link_to user_path(@question.user_id) do %>
+            <%= attachment_image_tag @question.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "rounded-circle" %>
+            <span><%= @question.user.name %></span>
+          <% end %>
+        </span>
+        <span class="float-right question_<%= @question.id %>">
+          <%= render "questions/resolved", question: @question %>
+        </span>
+      </div>
       <h5 class="card-title"><%= @question.title %></h5>
       <p class="card-text"><%= @question.content %></p>
-      <p class="card-text text-right"><%= @question.created_at.strftime('%Y/%m/%d') %></p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <%= link_to user_path(@question.user_id) do %>
-          <%= attachment_image_tag @question.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "rounded-circle" %>
-          <span><%= @question.user.name %></span>
+      <p class="card-text text-right">
+        <span class="making-genre"><%= @question.making_genre.name %></span>
+        <span class="bread-genre"><%= @question.bread_genre.name %></span>
+      </p>
+      <p class="card-text text-right">
+        <% if @question.user == current_user %>
+          <span><%= link_to "編集", edit_question_path(@question) %></span>
+          <span><%= link_to "削除", question_path(@question), method: :delete,data: {confirm: "削除しますか？"} %></span>
         <% end %>
-      </li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+        <span><%= @question.created_at.strftime('%Y/%m/%d') %></span>
+      </p>
+　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg' %></div>
     </div>
+  </div>
+
+  <div class="card answer mx-auto" style="width: 45rem;">
+    <div class="card-body">
+      <h5 class="card-title">回答件数：<%= @question.answers.count %>件</h5>
+      <% @question.answers.each do |answer| %>
+        <div class="card-item">
+          <%= link_to user_path(answer.user_id) do %>
+            <%= attachment_image_tag answer.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "rounded-circle" %>
+            <%= answer.user.name %>
+          <% end %>
+        </div>
+        <p class="card-text"><%= answer.content %></p>
+        <div class="card-item float-right answer_<%= answer.id %>">
+          <%= render "likes/like", question: @question ,answer: answer, like: answer.likes.first %>
+        </div>
+        <p class="card-text text-right">
+          <% if answer.user == current_user %>
+            <span class="card-text text-right answer-delete">
+              <%= link_to "削除", question_answer_path(answer.question, answer), method: :delete,data: {confirm: "削除しますか？"} %>
+            </span>
+          <% end %>
+          <span><%= answer.created_at.strftime('%Y/%m/%d') %></span>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="new-answer mx-auto" style="width: 35rem;">
+      <%= form_with(model:[@question, @answer], local: true) do |f| %>
+        <%= f.text_area :content, rows:'5',placeholder: "回答をここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
   </div>
 
 </div>
