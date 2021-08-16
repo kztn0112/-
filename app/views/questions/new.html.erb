@@ -1,5 +1,6 @@
 <div class="container">
   <div class="col-6 offset-3">
+
     <h3 class="text-center">質問する</h3>
     <%= form_with model: @question, local:true do |f| %>
       <div class="m-3">
@@ -30,5 +31,6 @@
          <%= f.submit '投稿' %>
       </div>
     <% end %>
+
   </div>
 </div>
