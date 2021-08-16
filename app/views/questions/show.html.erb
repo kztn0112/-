@@ -41,7 +41,7 @@
           <% end %>
         </div>
         <p class="card-text"><%= answer.content %></p>
-        <div class="card-item float-right answer_<%= answer.id %>">
+        <div class="card-item text-right answer_<%= answer.id %>">
           <%= render "likes/like", question: @question ,answer: answer, like: answer.likes.first %>
         </div>
         <p class="card-text text-right">
