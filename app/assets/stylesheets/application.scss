@@ -27,10 +27,11 @@
 
  body {
   color: #542D24;
+  padding-top: 7rem;
  }
 
  .content {
-  min-height: 65vh;
+  min-height: 77vh;
   background-color: #FFF6D9;
  }
 
@@ -55,9 +56,9 @@
 
  .notification-circle {
   position: absolute;
-  padding-left: 36%;
+  padding-right: 5%;
   padding-top: 0;
-  color: #87cefa;
+  color: #ff0000;
  }
 
  .footer {

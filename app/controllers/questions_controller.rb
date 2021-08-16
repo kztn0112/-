@@ -69,7 +69,7 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-  def make_resolved
+  def create_resolved
     @question = Question.find(params[:id])
     if @question.user == current_user
       @question.update(is_resolved: true)

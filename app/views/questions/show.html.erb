@@ -1,61 +1,66 @@
 <div class="container">
-  <div class="question-content d-flex justify-content-center">
-    <div>
-       <span>
-        <%= link_to user_path(@question.user_id) do %>
-        <%= attachment_image_tag @question.user, :profile_image, :fill, 100, 100, format: 'jpeg',class: "rounded-circle" %>
-       <p><%= @question.user.name %></p>
-        <% end %>
-      </span>
-   <span>投稿日時：<%= @question.created_at.strftime('%Y/%m/%d') %></span>
-      <h3 class="question-title m-1">タイトル：<%= @question.title %></h3>
-      <div class="question_<%= @question.id %> text-right m-1">
-        <%= render "questions/resolved", question: @question %>
+
+  <div class="card question mx-auto" style="width: 45rem;">
+    <div class="card-body">
+      <div class="card-item">
+        <span>
+          <%= link_to user_path(@question.user_id) do %>
+            <%= attachment_image_tag @question.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "rounded-circle" %>
+            <span><%= @question.user.name %></span>
+          <% end %>
+        </span>
+        <span class="float-right question_<%= @question.id %>">
+          <%= render "questions/resolved", question: @question %>
+        </span>
       </div>
-      <h4>質問内容：<%= @question.content %></h4>
-      <span class="making_genre m-1"><%= @question.making_genre.name %></span>
-      <span class="bread_genre m-1"><%= @question.bread_genre.name %></span>
-      <div class="question-image"><%= attachment_image_tag @question, :image, :fill, 600, 400, format: 'jpeg' %></div>
+      <h5 class="card-title"><%= @question.title %></h5>
+      <p class="card-text"><%= @question.content %></p>
+      <p class="card-text text-right">
+        <span class="making-genre"><%= @question.making_genre.name %></span>
+        <span class="bread-genre"><%= @question.bread_genre.name %></span>
+      </p>
+      <p class="card-text text-right">
+        <% if @question.user == current_user %>
+          <span><%= link_to "編集", edit_question_path(@question) %></span>
+          <span><%= link_to "削除", question_path(@question), method: :delete,data: {confirm: "削除しますか？"} %></span>
+        <% end %>
+        <span><%= @question.created_at.strftime('%Y/%m/%d') %></span>
+      </p>
+　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg' %></div>
+    </div>
+  </div>
 
-      <% if @question.user == current_user %>
-        <%= link_to "編集", edit_question_path(@question) %>
-        <%= link_to "削除", question_path(@question), method: :delete,data: {confirm: "削除しますか？"} %>
+  <div class="card answer mx-auto" style="width: 45rem;">
+    <div class="card-body">
+      <h5 class="card-title">回答件数：<%= @question.answers.count %>件</h5>
+      <% @question.answers.each do |answer| %>
+        <div class="card-item">
+          <%= link_to user_path(answer.user_id) do %>
+            <%= attachment_image_tag answer.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "rounded-circle" %>
+            <%= answer.user.name %>
+          <% end %>
+        </div>
+        <p class="card-text"><%= answer.content %></p>
+        <div class="card-item text-right answer_<%= answer.id %>">
+          <%= render "likes/like", question: @question ,answer: answer, like: answer.likes.first %>
+        </div>
+        <p class="card-text text-right">
+          <% if answer.user == current_user %>
+            <span class="card-text text-right answer-delete">
+              <%= link_to "削除", question_answer_path(answer.question, answer), method: :delete,data: {confirm: "削除しますか？"} %>
+            </span>
+          <% end %>
+          <span><%= answer.created_at.strftime('%Y/%m/%d') %></span>
+        </p>
       <% end %>
-
     </div>
   </div>
 
-<div class="answers  d-flex justify-content-center">
-  <div>
-  <div class="text-left">回答件数：<%= @question.answers.count %></div>
-  <% @question.answers.each do |answer| %>
-  <%= link_to user_path(answer.user_id) do %>
-  <%= attachment_image_tag answer.user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle" %>
-    <%= answer.user.name %>
-    <% end %>
-    <%= answer.created_at.strftime('%Y/%m/%d') %><%= answer.content %><br>
-     <% if answer.user == current_user %>
-    <div class="answer-delete">
-      <%= link_to "削除", question_answer_path(answer.question, answer), method: :delete,data: {confirm: "削除しますか？"} %>
-    </div>
-    <% end %>
-
-    <div class="answer_<%= answer.id %>">
-  <%= render "likes/like", question: @question ,answer: answer, like: answer.likes.first %>
-    </div>
-
-  <% end %>
+  <div class="new-answer mx-auto" style="width: 35rem;">
+      <%= form_with(model:[@question, @answer], local: true) do |f| %>
+        <%= f.text_area :content, rows:'5',placeholder: "回答をここに" %>
+        <%= f.submit "送信する" %>
+      <% end %>
   </div>
-</div>
-<div class="new-answer d-flex justify-content-center">
-  <div>
-    <%= form_with(model:[@question, @answer], local: true) do |f| %>
-      <%= f.text_area :content, rows:'5',placeholder: "回答をここに" %>
-      <%= f.submit "送信する" %>
-    <% end %>
-  </div>
-</div>
 
 </div>
-</div>
-
