@@ -11,10 +11,10 @@
 <div class="row">
   <% questions.each do |question| %>
     <div class="col-4">
-      <div class="card m-5 shadow-lg" style="width: 18rem;">
+      <div class="card m-5 shadow" style="width: 18rem;">
         <div class="card-img-top">
           <%=link_to question_path(question) do %>
-            <%= attachment_image_tag question, :image,:fill, 286, 200, format: 'jpeg',fallback: "no_image.jpg" %>
+            <%= attachment_image_tag question, :image,:fill, 286, 200, format: 'jpeg',fallback: "no_image.jpg", class: "rounded" %>
           <% end %>
         </div>
         <div class="card-body">

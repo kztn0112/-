@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="card question mx-auto" style="width: 45rem;">
+  <div class="card question mx-auto shadow" style="width: 45rem;">
     <div class="card-body">
       <div class="card-item">
         <span>
@@ -26,11 +26,11 @@
         <% end %>
         <span><%= @question.created_at.strftime('%Y/%m/%d') %></span>
       </p>
-　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg' %></div>
+　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg', class: "rounded" %></div>
     </div>
   </div>
 
-  <div class="card answer mx-auto" style="width: 45rem;">
+  <div class="card answer mx-auto shadow" style="width: 45rem;">
     <div class="card-body">
       <h5 class="card-title">回答件数：<%= @question.answers.count %>件</h5>
       <% @question.answers.each do |answer| %>
@@ -60,8 +60,8 @@
 
   <div class="new-answer mx-auto py-5" style="width: 45rem;">
       <%= form_with(model:[@question, @answer], local: true) do |f| %>
-        <%= f.text_area :content, rows:'5', cols:'88', placeholder: "回答をここに" %>
-        <%= f.submit "送信する" ,class: "float-right" %>
+        <%= f.text_area :content, rows:'5', cols:'88' %>
+        <%= f.submit "回答する" ,class: "float-right" %>
       <% end %>
   </div>
 
