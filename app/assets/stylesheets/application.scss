@@ -64,6 +64,23 @@
   color: #FFFFFF;
  }
 
+ .pagination {
+  display: flex;
+  justify-content: center;
+ }
+
+ .pagination>li>a {
+   color: #542D24;
+ }
+
+ .pagination>.active>a {
+   background-color: #ffc107;
+ }
+
+ .pagination>li>a:hover {
+   color: #542D24;
+ }
+
  .footer {
   background-color: #ffc107;
  }
