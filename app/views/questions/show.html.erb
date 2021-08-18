@@ -26,7 +26,7 @@
         <% end %>
         <span><%= @question.created_at.strftime('%Y/%m/%d') %></span>
       </p>
-　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg', class: "rounded" %></div>
+　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg',fallback: "no_image2.jpg",class: "rounded" %></div>
     </div>
   </div>
 
