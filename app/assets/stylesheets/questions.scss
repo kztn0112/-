@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+label {
+  padding-right: 15px;
+ }
 
 .making-genre {
   display: inline-block;
@@ -23,8 +26,8 @@
 
 .social {
   position: absolute;
-  top: 250px;
-  right: 100px;
+  top: 20%;
+  right: 80px;
 }
 
 .profile-image {

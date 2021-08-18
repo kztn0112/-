@@ -60,8 +60,8 @@
 
   <div class="new-answer mx-auto py-5" style="width: 45rem;">
       <%= form_with(model:[@question, @answer], local: true) do |f| %>
-        <%= f.text_area :content, rows:'5', cols:'88' %>
-        <%= f.submit "回答する" , class: "btn-light common-btn px-3 float-right" %>
+        <%= f.text_area :content, rows:'5', cols:'88',class: "form-control" %>
+        <%= f.submit "回答する" , class: "btn-light common-btn px-3 my-2 float-right" %>
       <% end %>
   </div>
 

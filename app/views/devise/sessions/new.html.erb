@@ -1,8 +1,7 @@
 <div class="container">
-
   <h2 class="pt-5  pr-4 text-center">ログイン</h2>
+  <div class="d-flex align-items-center justify-content-center">
 
-　<div class="row d-flex justify-content-center">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
       <div class="field m-3">
         <%= f.label :email,"メールアドレス" %><br />
@@ -21,10 +20,10 @@
         </div>
       <% end %>
 
-      <div class="actions m-5 text-center">
+      <div class="actions mt-5 text-center">
         <%= f.submit "ログイン", class: "btn-light common-btn px-1 mr-3"%>
       </div>
     <% end %>
-  </div>
 
+  </div>
 </div>
