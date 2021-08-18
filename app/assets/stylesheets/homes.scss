@@ -5,7 +5,7 @@
 .jumbotron{
    height: 500px;
    color: #FFFFFF;
-   background-image: image-url("bread4.jpg");
+   background-image: url(asset_path("bread4.jpg"));
    background-size: cover;
    background-position: center;
  }
