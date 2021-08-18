@@ -33,5 +33,6 @@ https://docs.google.com/spreadsheets/d/19Pj2KhCnjhZ6vlbviHYs_-jRWsGxBfIUb94cGCkC
 - IDE：Cloud9
 
 ## 使用素材
-- （未定、後日編集予定）外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- ロゴ作成：https://www.designevo.com/jp/
+- [ICOOON MONO] https://icooon-mono.com/
+- [Design Evo] https://www.designevo.com/jp/
+- [pixabay] https://pixabay.com/ja/

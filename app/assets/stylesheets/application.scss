@@ -31,7 +31,7 @@
  }
 
  .content {
-  min-height: 77vh;
+  min-height: 85vh;
   background-color: #FFF6D9;
  }
 
@@ -64,23 +64,30 @@
   color: #FFFFFF;
  }
 
+ .common-btn {
+  color: #542D24;
+  border-radius: 5px;
+ }
+
  .pagination {
   display: flex;
   justify-content: center;
  }
 
  .pagination>li>a {
-   color: #542D24;
+  color: #542D24;
  }
 
- .pagination>.active>a {
-   background-color: #ffc107;
+ .page-item.active .page-link {
+  border-color: #ffc107;
+  background-color: #ffc107;
  }
 
  .pagination>li>a:hover {
-   color: #542D24;
+  color: #542D24;
  }
 
  .footer {
   background-color: #ffc107;
  }
+

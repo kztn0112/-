@@ -6,31 +6,41 @@
 
       <div class="card shadow w-90 m-5">
         <div class="card-body">
-          <h5 class="card-title">製作行程</h5>
-          <div class="card-text">
-            <% @making_genres.each do |making_genre| %>
-              <span>
-              <%= link_to questions_path(genre: making_genre.id, type: 'making') do %>
-                <%= making_genre.name %>(<%= making_genre.questions.count %>)
+          <h5 class="card-title">
+            <%=image_tag "making_icon.png", size: "50" ,class: "mr-2" %>製作行程<%=image_tag "making_icon.png", size: "50" ,class: "ml-2" %>
+          </h5>
+          <div class="card-text d-flex justify-content-center row">
+            <div class="col-md-6">
+              <% @making_genres.each do |making_genre| %>
+                <%= link_to questions_path(genre: making_genre.id, type: 'making') do %>
+                  <%= making_genre.name %>(<%= making_genre.questions.count %>)
+                <% end %>
+                &nbsp;
               <% end %>
-            <% end %>
-              </span>
-            <span><%=image_tag "bread3.jpg", size: "100" ,class: "col-2 offset-9 rounded" %></span>
+            </div>
+            <div class="col-md-2 offset-md-3">
+              <%=image_tag "bread3.jpg", size: "150" ,class: "rounded" %>
+            </div>
           </div>
         </div>
       </div>
       <div class="card shadow w-90 m-5">
         <div class="card-body">
-          <h5 class="card-title">パンの種類</h5>
-          <div class="card-text">
-            <% @bread_genres.each do |bread_genre| %>
-              <span>
-              <%= link_to questions_path(genre: bread_genre.id, type: 'bread') do %>
-                <%= bread_genre.name %>(<%= bread_genre.questions.count %>)
+          <h5 class="card-title">
+            <%=image_tag "bread6.png", size: "50" ,class: "mr-2" %>パンの種類<%=image_tag "bread6.png", size: "50" ,class: "ml-2" %>
+          </h5>
+          <div class="card-text d-flex justify-content-center row">
+            <div class="col-md-7">
+              <% @bread_genres.each do |bread_genre| %>
+                <%= link_to questions_path(genre: bread_genre.id, type: 'bread') do %>
+                  <%= bread_genre.name %>(<%= bread_genre.questions.count %>)
+                <% end %>
+                &nbsp;
               <% end %>
-              </span>
-            <% end %>
-            <span><%=image_tag "bread2.png", size: "100" ,class: "col-2 offset-9 rounded" %></span>
+            </div>
+            <div class="col-md-2 offset-md-2">
+              <%=image_tag "bread2.png", size: "150" %>
+            </div>
           </div>
         </div>
       </div>

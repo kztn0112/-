@@ -2,7 +2,7 @@
 
   <h2 class="pt-5 text-center">新規登録</h2>
 
-  <div class="row  d-flex justify-content-center">
+  <div class="row  d-flex align-items-center justify-content-center">
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -19,7 +19,7 @@
       <div class="field m-3">
         <%= f.label :password,"パスワード" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %>文字以内)</em>
+          (<%= @minimum_password_length %>文字以上)
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="actions m-5 text-center">
-        <%= f.submit "新規登録" %>
+        <%= f.submit "新規登録", class: "btn-light common-btn px-1 mr-3" %>
       </div>
     <% end %>
   </div>
