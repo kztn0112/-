@@ -1,8 +1,11 @@
 <div class="container">
-  <div class="search-form text-center p-5">
+  <div class="search-form text-center p-5" >
     <%= form_with url: searches_search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :content ,:size=>"80" %>
-      <%= f.submit '検索' %>
+      <div class="d-flex flex-row">
+        <%= f.text_field :content, class: "form-control col-md-8 offset-md-2 col-9" %>
+        <%= f.submit '検索', class: "col-md-1 col-3 btn-light common-btn ml-2" %>
+      </div>
     <% end %>
   </div>
 </div>
+

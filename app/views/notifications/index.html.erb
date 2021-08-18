@@ -4,7 +4,7 @@
       <h1 class="text-center">通知一覧</h1>
       <% if @notifications.present? %>
         <% @notifications.each do |notification| %>
-          <div class="card w-120 m-5">
+          <div class="card shadow w-120 m-5">
             <div class="card-body">
               <div class="card-text">
                 <%= link_to user_path(notification.visitor_id) do %>
