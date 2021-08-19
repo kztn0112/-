@@ -38,7 +38,7 @@ MakingGenre.create!(
 
 BreadGenre.create!(
  [
-    {name: '食パン'},{name: '餡パン'},{name: 'メロンパン'},{name: 'クロワッサン'},{name: 'カレーパン'},{name: 'フランスパン'},{name: 'クリームパン'},{name: 'お惣菜パン'},{name: 'その他'}
+    {name: '食パン'},{name: 'あんパン'},{name: 'メロンパン'},{name: 'クロワッサン'},{name: 'カレーパン'},{name: 'フランスパン'},{name: 'クリームパン'},{name: 'お惣菜パン'},{name: 'その他のパン'}
   ]
 )
 
@@ -47,29 +47,74 @@ User.all.each do |user|
     [
       {
         title: '食パンについて',
-        content: '食パンについての質問です',
-        user_id: 1,
+        content: '食パンについての質問です。食パンについての質問です。食パンについての質問です。',
         making_genre_id: 1,
         bread_genre_id: 1,
-        image: File.open('./app/assets/images/bread1.jpg'),
+        image: File.open('./app/assets/images/image1.jpg'),
         is_resolved: false
       },
       {
-        title: '餡パンについて',
-        content: '餡パンについての質問です',
-        user_id: 1,
+        title: 'あんパンについて',
+        content: 'あんパンについての質問です。あんパンについての質問です。あんパンについての質問です。',
         making_genre_id: 1,
         bread_genre_id: 2,
-        image: File.open('./app/assets/images/bread1.jpg'),
+        image: File.open('./app/assets/images/image1.jpg'),
         is_resolved: false
       },
       {
-        title: 'メロンパンについ',
-        content: 'メロンパンについての質問です',
-        user_id: 1,
-        making_genre_id: 1,
+        title: 'メロンパンについて',
+        content: 'メロンパンについての質問です。メロンパンについての質問です。メロンパンについての質問です。',
+        making_genre_id: 2,
         bread_genre_id: 3,
-        image: File.open('./app/assets/images/bread1.jpg'),
+        image: File.open('./app/assets/images/image2.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'クロワッサンについて',
+        content: 'クロワッサンについての質問です。クロワッサンについての質問です。クロワッサンについての質問です。',
+        making_genre_id: 2,
+        bread_genre_id: 4,
+        image: File.open('./app/assets/images/image2.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'カレーパンについて',
+        content: 'カレーパンについての質問です。カレーパンについての質問です。カレーパンについての質問です。',
+        making_genre_id: 3,
+        bread_genre_id: 5,
+        image: File.open('./app/assets/images/image3.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'フランスパンについて',
+        content: 'フランスパンについての質問です。フランスパンについての質問です。フランスパンについての質問です。',
+        making_genre_id: 3,
+        bread_genre_id: 6,
+        image: File.open('./app/assets/images/image3.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'クリームパンについて',
+        content: 'クリームパンについての質問です。クリームパンについての質問です。クリームパンについての質問です。',
+        making_genre_id: 4,
+        bread_genre_id: 7,
+        image: File.open('./app/assets/images/image4.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'お惣菜パンについて',
+        content: 'お惣菜パンについての質問です。お惣菜パンについての質問です。お惣菜パンについての質問です。',
+        making_genre_id: 5,
+        bread_genre_id: 8,
+        image: File.open('./app/assets/images/image5.jpg'),
+        is_resolved: false
+      },
+      {
+        title: 'その他のパンについて',
+        content: 'その他のパンについての質問です。その他のパンについての質問です。その他のパンについての質問です。',
+        making_genre_id: 5,
+        bread_genre_id: 9,
+        image: File.open('./app/assets/images/image6.jpg'),
         is_resolved: false
       }
     ]
