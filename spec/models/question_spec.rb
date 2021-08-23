@@ -1,4 +1,4 @@
-# # frozen_string_literal: true
+# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -9,27 +9,36 @@ RSpec.describe Question, "質問モデルに関するテスト", type: :model do
     let(:making_genre) { create(:making_genre) }
     let(:bread_genre) { create(:bread_genre) }
 
-    it "有効な投稿内容の場合は保存されるか" do
-      question = build(:question, user_id: user.id, making_genre_id: making_genre.id, bread_genre_id: bread_genre.id)
-      expect(question).to be_valid
+    context "有効な質問の場合" do
+      let(:question) { build(:question, user: user, making_genre: making_genre, bread_genre: bread_genre) }
+      it "質問が保存されるか" do
+        expect(question).to be_valid
+      end
     end
-    context "空白のバリデーションチェック" do
-      it "タイトルが空白の場合にバリデーションチェックされる" do
-        question = build(:question, title: nil, user_id: user.id, making_genre_id: making_genre.id, bread_genre_id: bread_genre.id)
-        expect(question).to be_invalid
-      end
-      it "本文が空白の場合にバリデーションチェックされる" do
-        question = build(:question, content: nil,user_id: user.id, making_genre_id: making_genre.id, bread_genre_id: bread_genre.id)
-        expect(question).to be_invalid
-      end
-      it "製作カテゴリが空白の場合にバリデーションチェックされる" do
-        question = build(:question, making_genre_id: nil,user_id: user.id, bread_genre_id: bread_genre.id)
-        expect(question).to be_invalid
-      end
-      it "パンの種類カテゴリが空白の場合にバリデーションチェックされる" do
-        question = build(:question, bread_genre_id: nil,user_id: user.id, making_genre_id: making_genre.id)
+    context "タイトルに空白がある場合" do
+      let(:question) { build(:question, title: nil, user: user, making_genre: making_genre, bread_genre: bread_genre) }
+      it "バリデーションチェックされる" do
         expect(question).to be_invalid
       end
     end
+    context "本文に空白がある場合" do
+      let(:question) { build(:question, content: nil, user: user, making_genre: making_genre, bread_genre: bread_genre) }
+      it "バリデーションチェックされる" do
+        expect(question).to be_invalid
+      end
+    end
+    context "製作カテゴリを選択していない場合" do
+      let(:question) { build(:question, making_genre: nil, user: user, bread_genre: bread_genre) }
+      it "バリデーションチェックされる" do
+        expect(question).to be_invalid
+      end
+    end
+    context "パンの製作カテゴリを選択していない場合" do
+      let(:question) { build(:question, bread_genre: nil, user: user, making_genre: making_genre) }
+      it "バリデーションチェックされる" do
+        expect(question).to be_invalid
+      end
+    end
+
   end
 end

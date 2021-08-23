@@ -4,26 +4,35 @@ require 'rails_helper'
 
 RSpec.describe User, "会員モデルに関するテスト", type: :model do
   describe '実際に保存してみる' do
-    it "有効なユーザー情報の場合は保存されるか" do
-      user = build(:user)
-      expect(FactoryBot.build(:user)).to be_valid
+
+    context "有効なユーザー情報の場合" do
+      let(:user) {build(:user)}
+      it "ユーザーが登録されるか" do
+        expect(user).to be_valid
+      end
     end
-    context "空白のバリデーションチェック" do
-      it "名前が空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
-        user = build(:user, name: nil)
+
+    context "ユーザーの名前に空白がある場合" do
+      let(:user) { build(:user, name: nil) }
+      it "バリデーションチェックされ空白のエラーメッセージが返ってくるか" do
         expect(user).to be_invalid
         expect(user.errors[:name]).to include("can't be blank")
       end
-      it "メールアドレスが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
-        user = build(:user, email: nil)
+    end
+    context "メールアドレスに空白がある場合" do
+      let(:user) { build(:user, email: nil) }
+      it "バリデーションチェックされ空白のエラーメッセージが返ってくるか" do
         expect(user).to be_invalid
         expect(user.errors[:email]).to include("can't be blank")
       end
-      it "パスワードが空白の場合にバリデーションチェックされ空白のエラーメッセージが返ってきているか" do
-        user = build(:user, password: nil)
+    end
+    context "パスワードに空白がある場合" do
+      let(:user) { build(:user, password: nil) }
+      it "バリデーションチェックされ空白のエラーメッセージが返ってくるか" do
         expect(user).to be_invalid
         expect(user.errors[:password]).to include("can't be blank")
       end
     end
+
   end
 end
