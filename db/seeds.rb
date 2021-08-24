@@ -12,17 +12,17 @@
 User.create!(
   [
     {
-      email: 'user1@gmail.com',
-      password: 'test123',
-      password_confirmation: "test123",
+      email: 'taro@gmail.com',
+      password: 'panpanpan',
+      password_confirmation: "panpanpan",
       name: '山田太郎',
       introduction: 'パン作り初心者です！よろしくお願いします。',
       profile_image: File.open('./app/assets/images/user1.png')
     },
     {
-      email: 'user2@gmail.com',
-      password: 'test123',
-      password_confirmation: "test123",
+      email: 'hana@gmail.com',
+      password: 'panpanpan',
+      password_confirmation: "panpanpan",
       name: '山田花子',
       introduction: 'パン作り初心者です！よろしくお願いします。',
       profile_image: File.open('./app/assets/images/user2.png')
