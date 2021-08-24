@@ -42,11 +42,11 @@ describe 'トップ画面とカテゴリ一覧画面のテスト' do
     context 'リンクの遷移先の確認' do
       it 'パンの製作カテゴリの検索結果へのリンクの遷移先は正しいか' do
         click_link making_genre.name
-        expect(current_path).to eq('/questions?genre=' + making_genre.id.to_s + '&type=making')
+        expect(current_url).to eq(current_host+'/questions?genre=' + making_genre.id.to_s + '&type=making')
       end
       it 'パンの種類カテゴリの検索結果へのリンクの遷移先は正しいか' do
         click_link bread_genre.name
-        expect(current_path).to eq('/questions?genre=' + bread_genre.id.to_s + '&type=bread')
+        expect(current_url).to eq(current_host+'/questions?genre=' + bread_genre.id.to_s + '&type=bread')
       end
     end
   end
