@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require 'rails_helper'
 
@@ -9,15 +8,15 @@ describe '回答のテスト' do
   let!(:question) { create(:question, user: user, making_genre: making_genre, bread_genre: bread_genre) }
   let!(:answer) { create(:answer,user: user, question: question) }
 
-  describe '回答のテスト' do
+  before do
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+    visit question_path(question)
+  end
 
-    before do
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-      visit question_path(question)
-    end
+  describe '回答のテスト' do
 
     context '表示の確認' do
       it '回答ボタンが表示されているか' do
