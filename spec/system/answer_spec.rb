@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 describe '回答のテスト' do
@@ -16,29 +15,27 @@ describe '回答のテスト' do
     visit question_path(question)
   end
 
-  describe '回答のテスト' do
 
-    context '表示の確認' do
-      it '回答ボタンが表示されているか' do
-        expect(page).to have_button '回答する'
-      end
+  context '表示の確認' do
+    it '回答ボタンが表示されているか' do
+      expect(page).to have_button '回答する'
     end
-    context '回答処理のテスト' do
-      it '回答後のリダイレクト先は正しいか' do
-        fill_in 'answer[content]', with: Faker::Lorem.characters(number:30)
-        click_button '回答する'
-        expect(page).to have_current_path question_path(question)
-      end
-      it '回答後にサクセスメッセージが含まれるか' do
-        fill_in 'answer[content]', with: Faker::Lorem.characters(number:30)
-        click_button '回答する'
-        expect(page).to have_content '回答しました'
-      end
+  end
+  context '回答処理のテスト' do
+    it '回答後のリダイレクト先は正しいか' do
+      fill_in 'answer[content]', with: Faker::Lorem.characters(number:30)
+      click_button '回答する'
+      expect(page).to have_current_path question_path(question)
     end
-    context '表示の確認' do
-      it '回答されたものが表示されているか' do
-        expect(page).to have_content answer.content
-      end
+    it '回答後にサクセスメッセージが含まれるか' do
+      fill_in 'answer[content]', with: Faker::Lorem.characters(number:30)
+      click_button '回答する'
+      expect(page).to have_content '回答しました'
+    end
+  end
+  context '表示の確認' do
+    it '回答されたものが表示されているか' do
+      expect(page).to have_content answer.content
     end
   end
 end
