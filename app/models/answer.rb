@@ -6,7 +6,6 @@ class Answer < ApplicationRecord
 
   validates :content, presence: true
 
-  # いいね済を定義
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
