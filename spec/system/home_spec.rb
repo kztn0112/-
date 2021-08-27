@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'トップ画面とカテゴリ一覧画面のテスト' do
+describe 'トップ画面とジャンル検索画面のテスト' do
   describe 'トップ画面のテスト' do
     before do
       visit root_path
@@ -18,7 +18,7 @@ describe 'トップ画面とカテゴリ一覧画面のテスト' do
     end
   end
 
-  describe 'カテゴリ一覧画面のテスト' do
+  describe 'ジャンル検索画面のテスト' do
     let!(:user) { create(:user) }
     let!(:making_genre) { create(:making_genre) }
     let!(:bread_genre) { create(:bread_genre) }
@@ -30,21 +30,21 @@ describe 'トップ画面とカテゴリ一覧画面のテスト' do
       visit homes_path
     end
     context '表示の確認' do
-      it 'カテゴリ画面に「カテゴリ一覧」が表示されているか' do
-        expect(page).to have_content 'カテゴリ一覧'
+      it 'ジャンル検索画面に「ジャンル検索」が表示されているか' do
+        expect(page).to have_content 'ジャンル検索'
       end
-      it '各カテゴリの名前のリンクが存在しているか' do
+      it '各ジャンルの名前のリンクが存在しているか' do
         expect(page).to have_link making_genre.name
         expect(page).to have_link bread_genre.name
       end
     end
 
     context 'リンクの遷移先の確認' do
-      it 'パンの製作カテゴリの検索結果へのリンクの遷移先は正しいか' do
+      it 'パンの製作工程による検索結果へのリンクの遷移先は正しいか' do
         click_link making_genre.name
         expect(current_url).to eq(current_host+'/questions?genre=' + making_genre.id.to_s + '&type=making')
       end
-      it 'パンの種類カテゴリの検索結果へのリンクの遷移先は正しいか' do
+      it 'パンの種類による検索結果へのリンクの遷移先は正しいか' do
         click_link bread_genre.name
         expect(current_url).to eq(current_host+'/questions?genre=' + bread_genre.id.to_s + '&type=bread')
       end

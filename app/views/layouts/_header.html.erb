@@ -18,17 +18,17 @@
         </li>
         <li class="nav-item active ml-4">
           <%= link_to questions_path, class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fab fa-quora"></i>
+            <i class="fab fa-quora"></i>質問一覧
           <% end %>
         </li>
         <li class="nav-item active ml-4">
           <%= link_to homes_path, class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search"></i>ジャンル検索
           <% end %>
         </li>
         <li class="nav-item active ml-4">
           <%= link_to user_path(current_user.id), class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-user"></i>
+            <i class="fas fa-user"></i>マイページ
           <% end %>
         </li>
         <li class="nav-item active ml-4">
@@ -38,28 +38,28 @@
             </span>
           <% end %>
           <%= link_to notifications_path,class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="far fa-bell"></i>
+            <i class="far fa-bell"></i>通知
           <% end %>
         </li>
         <li class="nav-item active ml-4">
           <%= link_to destroy_user_session_path, method: :delete, class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-sign-out-alt"></i>
+            <i class="fas fa-sign-out-alt"></i>ログアウト
           <% end %>
         </li>
       <% else %>
         <li class="nav-item active ml-4">
           <%= link_to root_path,class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-home"></i>
+            <i class="fas fa-home"></i>ホーム
           <% end %>
         </li>
         <li class="nav-item active ml-4">
           <%= link_to new_user_registration_path, class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-user-plus"></i>
+            <i class="fas fa-user-plus"></i>新規登録
           <% end %>
         </li>
         <li class="nav-item active ml-4">
           <%= link_to new_user_session_path ,class: "nav-link btn btn-light btn-outline-dark" do %>
-            <i class="fas fa-sign-in-alt"></i>
+            <i class="fas fa-sign-in-alt"></i>ログイン
           <% end %>
         </li>
       <% end %>
