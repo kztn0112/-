@@ -13,10 +13,10 @@ describe 'ユーザーのテスト' do
     end
     it 'ログイン出来ないか' do
       visit new_user_session_path
-      fill_in "メールアドレス", with: "bbb@gmail.com"
+      fill_in "お名前", with: "BB"
       fill_in "パスワード", with: "111111"
       click_button "ログイン"
-      expect(page).to have_content "Invalid Email or password."
+      expect(page).to have_content "Invalid Name or password."
     end
   end
 
@@ -24,7 +24,7 @@ describe 'ユーザーのテスト' do
     let!(:user) {create(:user)}
     before do
       visit new_user_session_path
-      fill_in 'user[email]', with: user.email
+      fill_in 'user[name]', with: user.name
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
       visit user_path(user)
@@ -33,7 +33,7 @@ describe 'ユーザーのテスト' do
       it 'user_path(user)が"/users/user.id"であるか' do
         expect(current_path).to eq ('/users/' + user.id.to_s)
       end
-      it '氏名・自己紹介・編集リンク・質問履歴リンクが表示されているか' do
+      it '名前・自己紹介・編集リンク・質問履歴リンクが表示されているか' do
       expect(page).to have_content user.name
       expect(page).to have_content user.introduction
       expect(page).to have_link 'プロフィール編集'
@@ -51,7 +51,7 @@ describe 'ユーザーのテスト' do
     let!(:user) {create(:user)}
     before do
       visit new_user_session_path
-      fill_in 'user[email]', with: user.email
+      fill_in 'user[name]', with: user.name
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
       visit edit_user_path(user)
