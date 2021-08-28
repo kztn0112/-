@@ -24,7 +24,7 @@ describe 'トップ画面とジャンル検索画面のテスト' do
     let!(:bread_genre) { create(:bread_genre) }
     before do
       visit new_user_session_path
-      fill_in 'user[email]', with: user.email
+      fill_in 'user[name]', with: user.name
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
       visit homes_path
