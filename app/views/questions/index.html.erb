@@ -2,7 +2,7 @@
   <% if params[:user_id].present? %>
     <h3 class="text-center"><%= @user.name %>さんの質問履歴</h3>
   <% elsif params[:type] == 'making' %>
-    <h3 class="text-center">制作工程：<%= @making_genre.name %></h3>
+    <h3 class="text-center">製作工程：<%= @making_genre.name %></h3>
   <% elsif params[:type] == 'bread' %>
     <h3 class="text-center">パンの種類：<%= @bread_genre.name %></h3>
   <% else %>

@@ -9,12 +9,12 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     if @question.save
-      flash[:info] = '質問が投稿されました'
+      flash[:info] = '質問を投稿しました'
       redirect_to question_path(@question)
     else
       @making_genres = MakingGenre.all
       @bread_genres = BreadGenre.all
-      flash.now[:danger] = '質問が投稿できませんでした'
+      flash.now[:danger] = '質問を投稿できませんでした'
       render :new
     end
   end
@@ -52,12 +52,12 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      flash[:info] = '変更が保存されました'
+      flash[:info] = '変更を保存しました'
       redirect_to question_path(@question.id)
     else
       @making_genres = MakingGenre.all
       @bread_genres = BreadGenre.all
-      flash.now[:danger] = '変更が保存できませんでした'
+      flash.now[:danger] = '変更を保存できませんでした'
       render :edit
     end
   end
