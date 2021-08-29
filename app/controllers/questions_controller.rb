@@ -22,15 +22,15 @@ class QuestionsController < ApplicationController
   def index
     if params[:user_id].present?
       @user = User.find(params[:user_id])
-      @questions = @user.questions.page(params[:page]).per(6).order(created_at: :DESC)
+      @questions = @user.questions.page(params[:page]).order(created_at: :DESC)
     elsif  params[:type] == 'making'
       @making_genre = MakingGenre.find(params[:genre])
-      @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
+      @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
     elsif params[:type] == 'bread'
       @bread_genre = BreadGenre.find(params[:genre])
-      @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).per(6).order(created_at: :DESC)
+      @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
     else
-      @questions = Question.all.page(params[:page]).per(6).order(created_at: :DESC)
+      @questions = Question.all.page(params[:page]).order(created_at: :DESC)
     end
   end
 
@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:info] = '変更を保存しました'
-      redirect_to question_path(@question.id)
+      redirect_to question_path(@question)
     else
       @making_genres = MakingGenre.all
       @bread_genres = BreadGenre.all

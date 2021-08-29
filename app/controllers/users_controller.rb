@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:info] = '変更を保存しました'
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = '名前を入力してください'
       render :edit
