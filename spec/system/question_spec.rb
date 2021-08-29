@@ -52,7 +52,7 @@ describe '質問のテスト' do
         choose 'question_making_genre_id_1'
         choose 'question_bread_genre_id_1'
         click_button '質問する'
-        expect(current_path).to eq '/questions/' + Question.last.id.to_s
+        expect(current_path).to eq '/questions/' + Question.first.id.to_s
       end
     end
   end
@@ -114,4 +114,3 @@ describe '質問のテスト' do
     end
   end
 end
-
