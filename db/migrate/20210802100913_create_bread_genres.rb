@@ -1,7 +1,7 @@
 class CreateBreadGenres < ActiveRecord::Migration[5.2]
   def change
     create_table :bread_genres do |t|
-      t.string :name, null: false
+      t.integer :name, null: false  #コンソールでname作成
 
       t.timestamps
     end

@@ -1,0 +1,7 @@
+<div class="container">
+  <h3 class="text-center">回答受付中</h3>
+  <div class="text-left ml-5">
+    <%= link_to '☆質問一覧はこちら☆', questions_path %><br>
+  </div>
+  <%= render 'questions/index', questions: @questions %>
+</div>

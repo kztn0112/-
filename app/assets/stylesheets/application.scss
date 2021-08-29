@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: HiraMaruProN-W4, Hiragino Kaku Gothic Pro, "メイリオ";
+ }
+
+ body {
+  color: #542D24;
+  padding-top: 7rem;
+ }
+
+ .content {
+  min-height: 85vh;
+  background-color: #FFF6D9;
+ }
+
+ a {
+  color: #542D24;
+  text-decoration: none;
+ }
+
+ a:hover {
+  color: #542D24;
+ }
+
+ .navbar {
+  background-color: #ffc107;
+ }
+
+ .header-profile-image {
+  width:  60px;
+  height: 60px;
+  border-radius: 50%;
+ }
+
+ .notification-circle {
+  position: absolute;
+  padding-top: 0;
+  color: #ff0000;
+ }
+
+ .notifications-count{
+  color: #FFFFFF;
+ }
+
+ .common-btn {
+  color: #542D24;
+  border-radius: 5px;
+ }
+
+ .pagination {
+  display: flex;
+  justify-content: center;
+ }
+
+ .pagination>li>a {
+  color: #542D24;
+ }
+
+ .page-item.active .page-link {
+  border-color: #ffc107;
+  background-color: #ffc107;
+ }
+
+ .pagination>li>a:hover {
+  color: #542D24;
+ }
+
+ .footer {
+  background-color: #ffc107;
+ }
+
