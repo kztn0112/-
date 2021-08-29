@@ -6,7 +6,7 @@
           <span>
             <%= link_to user_path(@question.user_id) do %>
               <%= attachment_image_tag @question.user, :profile_image, :fill, 60, 60, format: 'jpeg',class: "rounded-circle" %>
-              <span><%= @question.user.name %></span>
+              <%= @question.user.name %>
             <% end %>
           </span>
           <span class="float-right question_<%= @question.id %>">
@@ -22,11 +22,11 @@
         <p class="card-text text-right">
           <% if @question.user == current_user %>
             <span><%= link_to "編集", edit_question_path(@question),class: "mr-3" %></span>
-            <span><%= link_to "削除", question_path(@question), method: :delete,data: {confirm: "削除しますか？"} ,class: "mr-3" %></span>
+            <span><%= link_to "削除", question_path(@question), method: :delete, data: {confirm: "削除しますか？"} , class: "mr-3" %></span>
           <% end %>
           <span><%= @question.created_at.strftime('%Y/%m/%d') %></span>
         </p>
-  　　　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg',fallback: "no_image2.jpg",class: "w-100 rounded" %></div>
+  　　  　<div class="card-item mx-auto"><%= attachment_image_tag @question, :image, :fill, 400, 300, format: 'jpeg', fallback: "no_image2.jpg", class: "w-100 rounded" %></div>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
             <p class="card-text text-right">
               <% if answer.user == current_user %>
                 <span class="card-text text-right answer-delete">
-                  <%= link_to "削除", question_answer_path(answer.question, answer), method: :delete,data: {confirm: "削除しますか？"},class: "mr-3" %>
+                  <%= link_to "削除", question_answer_path(answer.question, answer), method: :delete, data: {confirm: "削除しますか？"}, class: "mr-3" %>
                 </span>
               <% end %>
               <span><%= answer.created_at.strftime('%Y/%m/%d') %></span>
@@ -63,10 +63,10 @@
 
   <div class="row">
     <div class="new-answer mx-auto py-5 col-md-8 offset-md-2 col-10 offset-1" style="width: 45rem;">
-        <%= form_with(model:[@question, @answer], local: true) do |f| %>
-          <%= f.text_area :content, rows:'5',class: "form-control" %>
-          <%= f.submit "回答する" , class: "btn-light common-btn px-3 my-2 float-right" %>
-        <% end %>
+      <%= form_with(model:[@question, @answer], local: true) do |f| %>
+        <%= f.text_area :content, rows:'5', class: "form-control" %>
+        <%= f.submit "回答する" , class: "btn-light common-btn px-3 my-2 float-right" %>
+      <% end %>
     </div>
   </div>
 

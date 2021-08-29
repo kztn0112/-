@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   get 'notifications/index'
   get 'searches/search'
   root to: 'homes#top'
-  resources :homes, only: [:index]
 
   devise_for :users
+
+  resources :homes, only: [:index]
 
   resources :users, only: [:show, :edit, :update]
 
