@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @questions = @user.questions.all.order(created_at: :DESC)
+    @questions = @user.questions.page(params[:page])
   end
 
   def edit

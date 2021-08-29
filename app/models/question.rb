@@ -1,4 +1,7 @@
 class Question < ApplicationRecord
+
+  default_scope -> { order(created_at: :desc) }
+
   attachment :image
   belongs_to :user
   belongs_to :making_genre
