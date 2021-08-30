@@ -22,20 +22,20 @@ class QuestionsController < ApplicationController
   def index
     if params[:user_id].present?
       @user = User.find(params[:user_id])
-      @questions = @user.questions.page(params[:page]).order(created_at: :DESC)
+      @questions = @user.questions.page(params[:page])
     elsif  params[:type] == 'making'
       @making_genre = MakingGenre.find(params[:genre])
-      @questions = Question.where(making_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
+      @questions = Question.where(making_genre_id: params[:genre]).page(params[:page])
     elsif params[:type] == 'bread'
       @bread_genre = BreadGenre.find(params[:genre])
-      @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page]).order(created_at: :DESC)
+      @questions = Question.where(bread_genre_id: params[:genre]).page(params[:page])
     else
-      @questions = Question.all.page(params[:page]).order(created_at: :DESC)
+      @questions = Question.all.page(params[:page])
     end
   end
 
   def unsolved
-    @questions = Question.where(is_resolved: false).page(params[:page]).per(6).order(created_at: :DESC)
+    @questions = Question.where(is_resolved: false).page(params[:page])
   end
 
   def show
