@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 label {
- padding-right: 30px;
+padding-right: 30px;
 }
 
 .making-genre {
@@ -32,8 +32,8 @@ label {
 
 .social {
   position: absolute;
-  top: 20%;
-  right: 80px;
+  top: 28%;
+  right: 30px;
 }
 
 .fa-question {
@@ -44,18 +44,37 @@ label {
   font-size: 3em;
 }
 
+@media screen and (max-width:1024px) {
+  .social {
+    position: absolute;
+    top: 29%;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .social {
+    position: absolute;
+    top: 35%;
+    right: 15px;
+  }
+}
+
 @media screen and (max-width:425px) {
   .social {
     position: absolute;
     top: 35%;
     right: 8px;
   }
+
   .fa-question {
     font-size: 3em;
   }
+
   .fa-pencil {
     font-size: 1em;
   }
+
   .question-text {
     display: none;
   }
